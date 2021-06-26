@@ -1,0 +1,19 @@
+.content {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.button {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+.text {
+	padding: 30px 0;
+	text-align: center;
+}
+.content a {
+	color: var(--blueMain);
+	text-decoration: underline;
+	text-align: center;
+}

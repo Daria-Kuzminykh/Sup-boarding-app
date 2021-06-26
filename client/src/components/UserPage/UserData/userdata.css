@@ -1,0 +1,23 @@
+.smallTitle {
+	margin: 0 0 40px;
+}
+.dataRow {
+	margin-bottom: 15px;
+}
+.dataName {
+	font-weight: 600;
+}
+
+.changeButton {
+	margin-top: 30px;
+	margin-bottom: 40px;
+	padding: 13px 50px;
+	color: var(--blueMain);
+	border-radius: 10px;
+	border: 1px solid var(--blueMain);
+	transition: all .3s ease-in-out;
+}
+.changeButton:hover {
+	background-color: var(--blueMain);
+	color: var(--white);
+}

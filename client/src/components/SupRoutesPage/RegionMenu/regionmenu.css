@@ -1,0 +1,20 @@
+.list {
+	display: flex;
+	margin-bottom: 50px;
+}
+.item:not(:last-child) {
+	margin-right: 35px;
+}
+.button {
+	padding: 17px 35px;
+	color: var(--blueMain);
+	border: 1px solid var(--blueMain);
+	border-radius: 10px;
+	transition: all .3s ease-in-out;
+}
+.active,
+.button:hover {
+	color: var(--white);
+	background-color: var(--blueMainD6);
+	border-color: var(--blueMainD6);
+}

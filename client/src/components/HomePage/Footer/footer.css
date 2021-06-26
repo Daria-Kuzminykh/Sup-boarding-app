@@ -1,0 +1,35 @@
+.footer {
+	padding: 20px 0;
+	background-color: var(--blueDark);
+}
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.left,
+.right{
+	display: flex;
+	align-items: center;
+}
+.logo {
+	margin-right: 30px;
+}
+.email {
+	font-size: 16px;
+	color: var(--white);
+}
+.email a {
+	color: var(--white);
+}
+.email a:hover {
+	text-decoration: underline;
+}
+.copyright {
+	margin-right: 15px;
+	font-size: 16px;
+	color: var(--white);
+}
+.vk {
+	margin-right: 10px;
+}

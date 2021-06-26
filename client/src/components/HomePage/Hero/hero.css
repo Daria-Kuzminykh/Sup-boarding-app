@@ -1,0 +1,42 @@
+.visuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	clip: rect(0 0 0 0)
+}
+
+.container {
+	min-height: 1021px;
+	background-image: url("../../../static/image/hero-fon-1920.webp");
+	background-repeat: no-repeat;
+}
+
+.logo {
+	position: relative;
+	left: 50%;
+	margin-top: 263px;
+	margin-bottom: 30px;
+	transform: translateX(-50%);
+}
+
+.text {
+	margin: 0 auto;
+	margin-bottom: 110px;
+	max-width: 640px;
+	text-align: center;
+	color: var(--white);
+	line-height: 32px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+}
+
+.button button {
+	box-shadow: 0 0 32px 13px rgba(5, 5, 5, 0.23);
+}

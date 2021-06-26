@@ -1,0 +1,45 @@
+.entry {
+	display: flex;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+.entry span {
+	margin-right: 15px;
+	color: var(--white);
+}
+
+.action {
+	position: absolute;
+	top: 45px;
+	right: 0;
+	padding: 10px 0;
+	width: 200px;
+	background-color: var(--white);
+	border-radius: 10px;
+	transition: all .3s ease-in-out;
+	opacity: 0;
+	transform: scaleY(0.0001);
+	transform-origin: top;
+}
+.action a {
+	display: block;
+	padding: 10px 20px;
+	color: var(--gray99);
+}
+
+.entry:hover .action {
+	opacity: 1;
+	transform: none;
+}
+.action a:hover {
+	background-color: var(--grayE5);
+}
+.button:hover {
+	background-color: var(--grayE5);
+}
+.button {
+	padding: 10px 0;
+	width: 100%;
+	color: var(--gray99);
+}

@@ -1,0 +1,43 @@
+.info {
+	padding: 75px 0;
+	border-bottom: 1px solid var(--grayE5);
+}
+.box {
+	position: relative;
+	padding: 85px 145px;
+	width: 100%;
+	min-height: 700px;
+	border-radius: 15px;
+	box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.1);
+}
+
+.raider {
+	position: absolute;
+	bottom: -40px;
+	left: -180px;
+}
+
+.blockquote {
+	position: relative;
+	margin-bottom: 55px;
+	max-width: 643px;
+	font-size: 32px;
+	line-height: 50px;
+}
+
+.blockquote::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: -50px;
+	top: -3px;
+	width: 40px;
+	height: 30px;
+	background-image: url("../../../static/image/quotes.png");
+	background-repeat: no-repeat;
+}
+
+.text {
+	line-height: 32px;
+}
+

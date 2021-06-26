@@ -1,0 +1,13 @@
+.content {
+	padding: 75px 0;
+}
+.error {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+}
+.text {
+	margin-bottom: 40px;
+}

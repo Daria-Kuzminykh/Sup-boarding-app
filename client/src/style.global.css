@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('static/fonts/GothamPro.woff2') format('woff2'),
+      url('static/fonts/GothamPro.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('static/fonts/GothamPro-Bold.woff2') format('woff2'),
+      url('static/fonts/GothamPro-Bold.woff') format('woff');
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('static/fonts/robotocondensed-bold-webfont.woff2') format('woff2'),
+      url('static/fonts/robotocondensed-bold-webfont.woff') format('woff');
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  font-family: 'Gotham Pro', sans-serif;
+	color: var(--black);
+	font-size: 18px;
+	font-weight: 400;
+}
+* {
+  box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: 1px solid var(--blueDark97);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+button {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	font-family: 'Gotham Pro', sans-serif;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	padding: 15px;
+	border: none;
+	outline: none;
+	font-family: 'Gotham Pro', sans-serif;
+	font-size: 16px;
+	border-bottom: 1px solid var(--grayCC);
+	background-color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+	font-family: 'Gotham Pro', sans-serif;
+	font-size: 16px;
+	color: var(--gray99);
+}
+
+textarea {
+	padding: 15px;
+	font-family: 'Gotham Pro', sans-serif;
+	font-size: 16px;
+	border-color: var(--gray99);
+}
+
+textarea:focus {
+	outline-color: var(--blueMainD6);
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 50px;
+	max-width: 1380px;
+}
+
+:root {
+	--white: #fff;
+	--blueMain: #29a2cd;
+	--blueMainD7: #54b5d7;
+	--blueMainD6: #4cb2d6;
+	--blueHover: #85cfea;
+	--blutLight: #daf4f9;
+	--blueDark: #2283a5;
+	--blueDark97: #095097;
+	--black: #333;
+	--gray99: #999;
+	--grayE5: #e5e5e5;
+	--grayCC: #cccccc;
+	--red: #DB3918;
+}

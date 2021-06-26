@@ -1,0 +1,28 @@
+.button {
+	display: block;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	z-index: 3;
+	border-radius: 100%;
+	background-color: var(--blueDark97);
+	transition: background .2s ease-in-out;
+}
+.button::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: 15px;
+	width: 17px;
+	height: 17px;
+	background-color: transparent;
+	border-left: 2px solid var(--white);
+	border-top: 2px solid var(--white);
+	transform: rotate(45deg);
+}
+.button:hover {
+	background-color: var(--blueMain);
+}

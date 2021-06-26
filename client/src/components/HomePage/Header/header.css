@@ -1,0 +1,27 @@
+.container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 30px 50px;
+	max-width: 1380px;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+}
+.link {
+	color: var(--white);
+	transition: color .2s ease-in-out;
+}
+.link:hover {
+	color: var(--blueDark97);
+}
+.item:not(:last-child) {
+	margin-right: 40px;
+}

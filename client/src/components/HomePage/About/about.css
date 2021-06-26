@@ -1,0 +1,80 @@
+.about {
+	padding-top: 30px;
+}
+
+.list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 120px;
+}
+
+.item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 220px;
+}
+
+.item:not(:last-child) {
+	margin-right: 135px;
+}
+
+.item > svg {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.descr {
+	text-align: center;
+	line-height: 32px;
+}
+
+.fon {
+	position: relative;
+	padding-top: 140px;
+	padding-bottom: 75px;
+	background-color: var(--blutLight);
+}
+.fon::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	height: 120px;
+	background-image: url("../../../static/image/decor-border-top.webp");
+	background-repeat: no-repeat;
+}
+
+.figure1 {
+	position: absolute;
+	z-index: 3;
+	top: -40px;
+	left: 60%;
+}
+
+.figure2 {
+	position: absolute;
+	z-index: 3;
+	top: 370px;
+	left: 68%;
+}
+
+.text {
+	margin-top: 40px;
+	max-width: 740px;
+	line-height: 32px;
+}
+.text:first-child {
+	margin-top: 30px;
+}
+.text:not(:last-child) {
+	margin-bottom: 30px;
+}
+.text a {
+	text-decoration: underline;
+	color: var(--blueMain);
+}

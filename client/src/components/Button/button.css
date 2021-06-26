@@ -1,0 +1,25 @@
+.button {
+	padding: 17px 60px;
+	color: var(--white);
+	font-family: 'Gotham Pro', sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	background-color: var(--blueMain);
+	border: 2px solid var(--blueMain);
+	border-radius: 10px;
+	transition: all .3s ease-in-out;
+}
+.button:disabled {
+	 background-color: #85CFEAFF;
+ }
+.button:hover {
+	background-color: var(--blueHover);
+	border-color: var(--blueHover);
+}
+.button:active,
+.button:focus {
+	outline: none;
+	border-color: var(--blueDark97);
+}

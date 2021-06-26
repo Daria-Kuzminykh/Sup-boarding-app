@@ -1,0 +1,51 @@
+.card {
+	display: flex;
+	align-items: center;
+	padding: 30px;
+	max-width: 670px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.card svg  {
+	margin-right: 30px;
+}
+.left {
+	margin-right: 30px;
+}
+.name {
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+.place,
+.owner {
+	color: var(--blueMain);
+}
+.placeText,
+.ownerText {
+	color: var(--black);
+}
+.date {
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+.dateText {
+	font-weight: 400;
+}
+.separator {
+	margin-right: 30px;
+	width: 1px;
+	height: 70px;
+	background-color: var(--grayCC);
+}
+
+
+.card:hover {
+	background-color: var(--blueMainD6);
+}
+.card:hover svg {
+	fill: var(--white);
+}
+.card:hover p,
+.card:hover span{
+	color: var(--white);
+}

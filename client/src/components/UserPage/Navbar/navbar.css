@@ -1,0 +1,25 @@
+.header {
+	padding: 30px 0;
+	background-color: var(--blueMain);
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.list {
+	display: flex;
+}
+.item:not(:last-child) {
+	margin-right: 40px;
+}
+
+.item a {
+	color: var(--white);
+	transition: color .2s ease-in-out;
+}
+.item a:hover {
+	color: var(--blueDark97);
+}

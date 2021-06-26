@@ -1,0 +1,48 @@
+.select {
+	padding: 10px 20px;
+	font-family: 'Gotham Pro', sans-serif;
+	font-size: 18px;
+}
+
+.select option {
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.select:focus {
+	outline-color: var(--blueMainD6);
+}
+
+.inputBox label {
+	display: block;
+	margin-bottom: 20px;
+}
+.inputBox {
+	margin-bottom: 30px;
+}
+.inputBox:last-child {
+	margin-bottom: 0;
+}
+.input,
+.textarea {
+	width: 100%;
+}
+.textarea {
+	min-height: 100px;
+}
+.button {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	margin-top: 20px;
+}
+.break {
+	height: 20px;
+}
+.button svg {
+	position: absolute;
+	top: 12px;
+	left: 31%;
+	width: 30px;
+	height: 30px;
+}

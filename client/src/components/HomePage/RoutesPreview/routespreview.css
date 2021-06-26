@@ -1,0 +1,10 @@
+.routes {
+	padding: 75px 0;
+}
+.button {
+	display: flex;
+	justify-content: center;
+}
+.text {
+	padding: 40px 0 60px;
+}

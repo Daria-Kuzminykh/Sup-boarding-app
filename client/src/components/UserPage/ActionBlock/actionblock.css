@@ -1,0 +1,14 @@
+.routeBlock {
+	padding: 0 25px;
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(-30px);
+}
+
+.eventBlock {
+	display: flex;
+	padding-top: 20px;
+}
+.eventBlock > button {
+	margin-right: 20px;
+}

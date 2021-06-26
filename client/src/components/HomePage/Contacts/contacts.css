@@ -1,0 +1,53 @@
+.contacts {
+	position: relative;
+	padding: 30px 0 120px;
+}
+.text {
+	margin-bottom: 30px;
+	max-width: 644px;
+	line-height: 32px;
+}
+.smallTitle {
+	margin-bottom: 40px;
+	font-size: 18px;
+}
+.linkBox {
+	display: flex;
+	align-items: center;
+	padding: 30px;
+	width: 375px;
+	border-radius: 10px;
+	box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.1);
+}
+.linkBox svg {
+	margin-right: 30px;
+}
+.separator {
+	margin-right: 30px;
+	width: 2px;
+	height: 120px;
+	background-color: var(--grayE5);
+}
+.item:not(:last-child) {
+	margin-bottom: 7px;
+}
+.link {
+	color: var(--black);
+	transition: color .2s ease-in-out;
+}
+.link:hover {
+	color: var(--blueMain);
+}
+.decor {
+	position: absolute;
+	bottom: 0;
+	left: 43%;
+	width: 500px;
+	height: auto;
+}
+.figure5 {
+	position: absolute;
+	top: 0px;
+	left: 57%;
+}
+
