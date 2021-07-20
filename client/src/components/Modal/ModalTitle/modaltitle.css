@@ -6,3 +6,9 @@
 	color: var(--blueMain);
 	text-align: center;
 }
+
+@media (max-width: 1023px) {
+	.title {
+		font-size: 28px;
+	}
+}

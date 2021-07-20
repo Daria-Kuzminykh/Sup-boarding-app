@@ -16,6 +16,10 @@ import {ChangeModal} from "./components/UserPage/UserData/ChangeModal";
 import {LogoutModal} from "./components/LogoutModal";
 import {DeleteModal} from "./components/UserPage/DeleteModal";
 import {RouteChangeForm} from "./components/SupRoutesPage/RouteChangeForm";
+import {EventChangeForm} from "./components/EventsPage/EventChangeForm";
+import {SurfDayModal} from "./components/HomePage/EventsPreview/SurfDayModal";
+import {SupDayModal} from "./components/HomePage/EventsPreview/SupDayModal";
+import {CoverModal} from "./components/SupRoutesPage/CoverModal";
 
 export function Routes() {
 	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
@@ -27,6 +31,9 @@ export function Routes() {
           <UserPage />
 					<Route path="/user/route-form">
 						<RouteForm />
+					</Route>
+					<Route path="/user/route-cover">
+						<CoverModal />
 					</Route>
 					<Route path="/user/event-form">
 						<EventForm />
@@ -45,6 +52,9 @@ export function Routes() {
 					</Route>
 					<Route path="/user/change-route">
 						<RouteChangeForm />
+					</Route>
+					<Route path="/user/change-event">
+						<EventChangeForm />
 					</Route>
         </Route>
         <Route path="/routes">
@@ -73,6 +83,12 @@ export function Routes() {
 					<Route path="/home/events/:id">
 						<EventModal path="/home"/>
 					</Route>
+					<Route path="/home/event/surf-day">
+						<SurfDayModal />
+					</Route>
+					<Route path="/home/event/sup-boarding-day">
+						<SupDayModal />
+					</Route>
 				</Route>
         <Redirect to="/home"/>
       </Switch>
@@ -97,6 +113,12 @@ export function Routes() {
         </Route>
 				<Route path="/home/routes/:id">
 					<RouteModal path="/home"/>
+				</Route>
+				<Route path="/home/event/surf-day">
+					<SurfDayModal />
+				</Route>
+				<Route path="/home/event/sup-boarding-day">
+					<SupDayModal />
 				</Route>
       </Route>
       <Redirect to="/home"/>

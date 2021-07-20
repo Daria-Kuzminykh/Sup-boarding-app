@@ -1,14 +1,29 @@
 .block {
 	position: absolute;
 	top: 40%;
+	/*margin: 0 auto;*/
+	min-width: 330px;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 .text {
 	margin-bottom: 50px;
 	text-align: center;
+	line-height: 32px;
 }
 .button {
 	display: flex;
 	justify-content: center;
+}
+
+@media (max-width: 1023px) {
+	.text {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 350px) {
+	.block {
+		min-width: 290px;
+	}
 }

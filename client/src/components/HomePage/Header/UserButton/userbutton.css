@@ -43,3 +43,12 @@
 	width: 100%;
 	color: var(--gray99);
 }
+
+@media (max-width: 1023px) {
+	.entry svg {
+		width: 30px;
+	}
+	.action {
+		width: 180px;
+	}
+}

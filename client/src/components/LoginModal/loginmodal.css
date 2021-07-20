@@ -17,3 +17,9 @@
 	display: flex;
 	justify-content: center;
 }
+
+@media (max-width: 1023px) {
+	.button {
+		padding: 10px 50px;
+	}
+}

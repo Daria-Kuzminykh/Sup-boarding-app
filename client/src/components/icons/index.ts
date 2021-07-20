@@ -16,5 +16,6 @@ export * from './LevelOneIcon';
 export * from './SpinnerIcon';
 export * from './VKIcon';
 export * from './InstagramIcon';
+export * from './BurgerIcon';
 
 

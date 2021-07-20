@@ -7,19 +7,60 @@
 }
 .hello {
 	position: absolute;
-	top: 20px;
+	top: 0px;
 	right: 0;
-	padding: 30px 0;
+	padding: 110px 60px 50px;
 	font-size: 32px;
 	color: var(--blueDark97);
+	background-image: url("../../static/image/table-hello-2.webp");
+	background-repeat: no-repeat;
+	background-size: 100% 192px;
+	background-position: center;
 }
 .buttonCenter {
-	display: flex;
-	justify-content: center;
+	margin: 0 auto;
+	max-width: 330px;
 }
 .descr {
 	margin-bottom: 50px;
 }
 .item {
 	margin-bottom: 10px;
+}
+
+@media (max-width: 1300px) {
+	.content {
+		padding: 65px 0;
+	}
+}
+
+@media (max-width: 1023px) {
+	.content {
+		padding: 40px 0;
+	}
+	.hello {
+		display: none;
+	}
+	.smallTitle {
+		margin-bottom: 30px;
+	}
+	.descr {
+		line-height: 32px;
+	}
+}
+
+@media (max-width: 700px) {
+
+}
+
+@media (max-width: 600px) {
+	.buttonCenter {
+		max-width: 255px;
+	}
+}
+
+@media (max-width: 370px) {
+	.item {
+		max-width: 100%;
+	}
 }

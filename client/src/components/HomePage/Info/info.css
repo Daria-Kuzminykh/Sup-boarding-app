@@ -41,3 +41,70 @@
 	line-height: 32px;
 }
 
+@media (max-width: 1665px) {
+	.raider {
+		bottom: -40px;
+		left: -70px;
+		width: 400px;
+	}
+}
+
+@media (max-width: 1300px) {
+	.info {
+		padding-top: 65px;
+	}
+	.box {
+		padding: 70px 100px;
+		min-height: 600px;
+	}
+	.raider {
+		bottom: -40px;
+		left: -70px;
+		width: 300px;
+	}
+	.blockquote {
+		margin-bottom: 30px;
+		font-size: 26px;
+		line-height: 40px;
+	}
+}
+
+@media (max-width: 930px) {
+	.info {
+		padding: 40px 0 50px;
+	}
+	.box {
+		padding: 50px;
+		min-height: 600px;
+	}
+	.raider {
+		display: none;
+	}
+	.blockquote {
+		margin-left: 20px;
+		margin-bottom: 30px;
+		font-size: 20px;
+		line-height: 40px;
+	}
+	.text {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+@media (max-width: 625px) {
+	.box {
+		padding: 30px;
+	}
+	.blockquote {
+		font-size: 18px;
+		line-height: 28px;
+	}
+	.blockquote::before {
+		left: -27px;
+		width: 20px;
+		height: 15px;
+		background-size: 100% 100%;
+	}
+}
+

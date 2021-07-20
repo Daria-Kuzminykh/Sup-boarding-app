@@ -29,7 +29,18 @@ const initialState: RootState = {
 		descr: '',
 		plus: '',
 		minus: '',
-		preview: null,
+	},
+	routeChange: {
+		region: 'Красноярский край',
+		place: '',
+		name: '',
+		level: '1',
+		time: '',
+		fotoLink: '',
+		descr: '',
+		plus: '',
+		minus: '',
+		_id: '',
 	},
 	routesList: [],
 	event: {
@@ -39,6 +50,16 @@ const initialState: RootState = {
 		contacts: '',
 		contactTel: '',
 		dateEvent: '',
+		_id: '',
+	},
+	eventChange: {
+		name: '',
+		place: '',
+		descr: '',
+		contacts: '',
+		contactTel: '',
+		dateEvent: '',
+		_id: '',
 	},
 	eventsList: [],
 	deleteElement: {
@@ -70,7 +91,9 @@ export interface IRoute {
 	descr: string;
 	plus: string;
 	minus: string;
-	preview?: any;
+	_id?: string;
+	clicks?: number;
+	date?: string;
 }
 export interface IRoutePreview {
 	name: string;
@@ -79,6 +102,7 @@ export interface IRoutePreview {
 	time: number;
 	ownerFullName: string;
 	id: string;
+	cover?: string;
 }
 export interface IRegionTab {
 	name: string;
@@ -91,6 +115,7 @@ export interface IEvent {
 	contacts: string;
 	contactTel: string;
 	dateEvent: string;
+	_id?: string;
 }
 export interface IEventPreview {
 	name: string;
@@ -111,8 +136,10 @@ export interface RootState {
 	auth: IAuth;
 	user: IUser;
 	route: IRoute;
+	routeChange: IRoute;
 	routesList: Array<IRoutePreview>;
 	event: IEvent;
+	eventChange: IEvent;
 	eventsList: Array<IEventPreview>;
 	deleteElement: IDeleteElement;
 }
@@ -123,8 +150,10 @@ const CHOOSE_REGION_TAB = 'CHOOSE_REGION_TAB';
 const AUTH = 'AUTH';
 const USER = 'USER';
 const ROUTE = 'ROUTE';
+const ROUTE_CHANGE = 'ROUTE_CHANGE';
 const ROUTES_LIST = 'ROUTES_LIST';
 const EVENT = 'EVENT';
+const EVENT_CHANGE = 'EVENT_CHANGE';
 const EVENTS_LIST = 'EVENTS_LIST';
 const DELETE_ELEMENT = 'DELETE_ELEMENT';
 
@@ -149,6 +178,10 @@ type Route = {
 	type: typeof ROUTE;
 	route: IRoute;
 }
+type RouteChange = {
+	type: typeof ROUTE_CHANGE;
+	routeChange: IRoute;
+}
 type RoutesList = {
 	type: typeof ROUTES_LIST;
 	routesList: Array<IRoutePreview>;
@@ -156,6 +189,10 @@ type RoutesList = {
 type Event = {
 	type: typeof EVENT;
 	event: IEvent;
+}
+type EventChange = {
+	type: typeof EVENT_CHANGE;
+	eventChange: IEvent;
 }
 type EventsList = {
 	type: typeof EVENTS_LIST;
@@ -187,6 +224,10 @@ export const Route: ActionCreator<Route> = (route: IRoute) => ({
 	type: ROUTE,
 	route
 })
+export const RouteChangeAction: ActionCreator<RouteChange> = (routeChange: IRoute) => ({
+	type: ROUTE_CHANGE,
+	routeChange
+})
 export const RoutesListAction: ActionCreator<RoutesList> = (routesList: Array<IRoutePreview>) => ({
 	type: ROUTES_LIST,
 	routesList
@@ -194,6 +235,10 @@ export const RoutesListAction: ActionCreator<RoutesList> = (routesList: Array<IR
 export const EventAction: ActionCreator<Event> = (event: IEvent) => ({
 	type: EVENT,
 	event,
+})
+export const EventChangeAction: ActionCreator<EventChange> = (eventChange: IEvent) => ({
+	type: EVENT_CHANGE,
+	eventChange,
 })
 export const EventsListAction: ActionCreator<EventsList> = (eventsList: Array<IEventPreview>) => ({
 	type: EVENTS_LIST,
@@ -214,7 +259,9 @@ type MyAction =
 	ChooseRegionTabAction |
 	Event |
 	EventsList |
-	DeleteElement;
+	DeleteElement |
+	RouteChange |
+	EventChange;
 
 export const rootReducer: Reducer<RootState, MyAction> = (state = initialState, action) => {
 	switch (action.type) {
@@ -243,6 +290,11 @@ export const rootReducer: Reducer<RootState, MyAction> = (state = initialState, 
 				...state,
 				route: action.route
 			};
+		case ROUTE_CHANGE:
+			return {
+				...state,
+				routeChange: action.routeChange
+			};
 		case ROUTES_LIST:
 			return {
 				...state,
@@ -252,6 +304,11 @@ export const rootReducer: Reducer<RootState, MyAction> = (state = initialState, 
 			return {
 				...state,
 				event: action.event
+			};
+		case EVENT_CHANGE:
+			return {
+				...state,
+				eventChange: action.eventChange
 			};
 		case EVENTS_LIST:
 			return {

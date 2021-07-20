@@ -65,16 +65,97 @@
 
 .text {
 	margin-top: 40px;
+	margin-bottom: 30px;
 	max-width: 740px;
 	line-height: 32px;
-}
-.text:first-child {
-	margin-top: 30px;
-}
-.text:not(:last-child) {
-	margin-bottom: 30px;
 }
 .text a {
 	text-decoration: underline;
 	color: var(--blueMain);
 }
+
+@media (max-width: 1500px) {
+	.figure1 {
+		top: -20px;
+		width: 400px;
+	}
+	.figure2 {
+		top: 330px;
+	}
+}
+
+@media (max-width: 1300px) {
+	.item:not(:last-child) {
+		margin-right: 100px;
+	}
+	.text {
+		margin-top: 20px;
+		max-width: 600px;
+	}
+	.figure1 {
+		top: 170px;
+		left: 67%;
+		width: 300px;
+	}
+	.figure2 {
+		top: 470px;
+		width: 250px;
+	}
+	.list {
+		margin-bottom: 80px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.item:not(:last-child) {
+		margin-right: 30px;
+	}
+	.text {
+		max-width: 100%;
+	}
+	.figure1 {
+		position: static;
+		margin-right: 30px;
+		width: 290px;
+	}
+	.figure2 {
+		position: static;
+	}
+	.list {
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 760px) {
+	.item:not(:last-child) {
+		margin-right: 0;
+		margin-bottom: 40px;
+	}
+	.list {
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 0;
+	}
+	.figure1 {
+		margin-right: 0;
+		width: 290px;
+		margin-bottom: 30px;
+	}
+	.figure2 {
+		margin-left: 60px;
+	}
+	.fon {
+		padding: 120px 0 50px;
+	}
+	.text {
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 340px) {
+	.figure2 {
+		margin-left: 40px;
+	}
+}
+

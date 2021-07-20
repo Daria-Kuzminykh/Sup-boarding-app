@@ -10,6 +10,6 @@ const schema = new Schema({
   contactTel: {type: Number},
 	descr: {type: String},
 	clicks: {type: Number, required: true},
-})
+});
 
 module.exports = model('Event', schema);

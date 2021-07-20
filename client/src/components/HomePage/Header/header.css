@@ -10,7 +10,15 @@
 	padding: 30px 50px;
 	max-width: 1380px;
 }
-
+.nav {
+	display: flex;
+}
+.burger {
+	display: none;
+}
+.closeButton {
+	display: none;
+}
 .list {
 	display: flex;
 	align-items: center;
@@ -24,4 +32,101 @@
 }
 .item:not(:last-child) {
 	margin-right: 40px;
+}
+
+@media (max-width: 1300px) {
+	.logo {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.burger {
+		display: block;
+		order: -1;
+		cursor: pointer;
+	}
+	.burger svg {
+		transition: fill .2s ease-in-out;
+	}
+	.burger svg:hover {
+		fill: var(--blueDark97);
+	}
+	.closeButton {
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		cursor: pointer;
+	}
+	.closeButton path {
+		fill: var(--white);
+	}
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		transition: transform .3s ease-in-out;
+		transform: scaleX(0.00001);
+		opacity: 0;
+		transform-origin: left;
+	}
+	.isOpen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		transition: transform .3s ease-in-out;
+		transform-origin: left;
+		transform: none;
+		opacity: 1;
+	}
+	.isClose {
+		transform: scaleX(0.00001);
+		opacity: 0;
+	}
+	.list {
+		flex-direction: column;
+		padding: 37px 1px 30px;
+		background-color: var(--blueMain);
+	}
+	.item:not(:last-child) {
+		margin: 0;
+	}
+	.item {
+		width: 230px;
+	}
+	.link {
+		display: block;
+		padding: 15px 30px;
+		width: 100%;
+		font-size: 18px;
+		text-align: center;
+		transition: background-color .2s ease-in-out;
+	}
+	.link:hover {
+		color: var(--white);
+		background-color: var(--blueDark);
+	}
+}
+
+@media (max-width: 1023px) {
+	.container {
+		padding: 15px 15px;
+	}
+	.logo {
+		display: none;
+	}
+	.burger svg {
+		width: 30px;
+		height: 30px;
+		transform: translateY(2px);
+	}
+}
+
+@media (max-width: 600px) {
+	.nav,
+	.isOpen {
+		right: 0;
+	}
 }

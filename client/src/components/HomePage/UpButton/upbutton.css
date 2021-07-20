@@ -26,3 +26,18 @@
 .button:hover {
 	background-color: var(--blueMain);
 }
+
+@media (max-width: 760px) {
+	.button {
+		bottom: 15px;
+		right: 15px;
+		width: 40px;
+		height: 40px;
+	}
+	.button:after {
+		top: 16px;
+		left: 13px;
+		width: 13px;
+		height: 13px;
+	}
+}

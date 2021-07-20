@@ -15,7 +15,7 @@
 	display: flex;
 	align-items: center;
 	padding: 30px;
-	width: 375px;
+	max-width: 375px;
 	border-radius: 10px;
 	box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.1);
 }
@@ -49,5 +49,57 @@
 	position: absolute;
 	top: 0px;
 	left: 57%;
+}
+
+@media (max-width: 1300px) {
+	.figure5 {
+		top: 130px;
+		left: 70%;
+		width: 230px;
+	}
+	.decor {
+		width: 400px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.contacts {
+		padding-top: 0;
+	}
+	.text {
+		max-width: 55%;
+	}
+}
+@media (max-width: 850px) {
+	.figure5 {
+		top: 100px;
+		left: 60%;
+	}
+	.decor {
+		width: 300px;
+	}
+}
+
+@media (max-width: 600px) {
+	.figure5 {
+		top: -90px;
+		left: 54%;
+		width: 160px;
+		z-index: 4;
+	}
+	.decor {
+		width: 250px;
+		left: auto;
+		right: 10%;
+	}
+	.text {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 374px) {
+	.figure5 {
+		display: none;
+	}
 }
 

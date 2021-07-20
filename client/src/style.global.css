@@ -73,6 +73,7 @@ input {
 	outline: none;
 	font-family: 'Gotham Pro', sans-serif;
 	font-size: 16px;
+	line-height: 32px;
 	border-bottom: 1px solid var(--grayCC);
 	background-color: transparent;
 }
@@ -88,6 +89,7 @@ textarea {
 	padding: 15px;
 	font-family: 'Gotham Pro', sans-serif;
 	font-size: 16px;
+	line-height: 28px;
 	border-color: var(--gray99);
 }
 
@@ -115,4 +117,28 @@ textarea:focus {
 	--grayE5: #e5e5e5;
 	--grayCC: #cccccc;
 	--red: #DB3918;
+}
+
+@media (max-width: 1023px) {
+	html {
+		font-size: 16px;
+	}
+	button {
+		font-size: 16px;
+	}
+	input {
+		padding: 5px 10px;
+	}
+	textarea {
+		padding: 10px;
+	}
+	input,
+	textarea,
+	input::placeholder,
+	textarea::placeholder {
+		font-size: 14px;
+	}
+	.container {
+		padding: 0 15px;
+	}
 }

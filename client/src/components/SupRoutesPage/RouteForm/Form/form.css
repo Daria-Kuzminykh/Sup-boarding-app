@@ -43,3 +43,29 @@
 	width: 30px;
 	height: 30px;
 }
+
+@media (max-width: 1023px) {
+	.inputBox {
+		margin-bottom: 20px;
+	}
+	.input {
+		width: 305px;
+	}
+	.inputBox label {
+		margin-bottom: 15px;
+		line-height: 28px;
+	}
+	.select,
+	.select option {
+		font-size: 16px;
+	}
+	.select {
+		padding: 8px 10px;
+	}
+}
+
+@media (max-width: 370px) {
+	.input {
+		width: 250px;
+	}
+}

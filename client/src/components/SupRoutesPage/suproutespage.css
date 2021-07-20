@@ -5,5 +5,37 @@
 	margin-bottom: 40px;
 }
 .notRouteText {
+	padding-bottom: 50px;
 	text-align: center;
+}
+/*.footer {*/
+/*	position: absolute;*/
+/*	bottom: 0;*/
+/*	left: 0;*/
+/*	right: 0;*/
+/*}*/
+
+@media (max-width: 1300px) {
+	.content {
+		padding: 65px 0 0;
+	}
+	/*.footer {*/
+	/*	position: static;*/
+	/*}*/
+}
+
+@media (max-width: 1023px) {
+	.content {
+		padding: 40px 0 0;
+	}
+	.text {
+		margin-bottom: 20px;
+		line-height: 32px;
+	}
+}
+
+@media (max-width: 370px) {
+	.item {
+		max-width: 100%;
+	}
 }

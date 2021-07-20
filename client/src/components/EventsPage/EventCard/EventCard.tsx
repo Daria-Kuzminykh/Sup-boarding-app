@@ -4,6 +4,7 @@ import {CalendarIcon} from "../../icons";
 import {useHistory, useLocation} from "react-router-dom";
 
 interface IEventCard {
+	isPreview?: boolean;
 	name: string;
 	place: string;
 	date: string;
@@ -11,11 +12,20 @@ interface IEventCard {
 	id: string;
 }
 
-export function EventCard({ name, date, owner, place, id }: IEventCard) {
+export function EventCard({ name, date, owner, place, id, isPreview = false }: IEventCard) {
 	const history = useHistory();
 	const location = useLocation();
+
+	function handlerClick() {
+		if (isPreview) {
+			history.push(`/home/event/${id}`);
+		} else {
+			history.push(`${location.pathname}/events/${id}`);
+		}
+	}
+
   return (
-			<div className={styles.card} onClick={() => history.push(`${location.pathname}/events/${id}`)}>
+			<div className={styles.card} onClick={handlerClick}>
 				<CalendarIcon />
 				<div className={styles.left}>
 					<p className={styles.name}>{name}</p>
@@ -28,6 +38,8 @@ export function EventCard({ name, date, owner, place, id }: IEventCard) {
 					<p className={styles.date}><span className={styles.dateText}>Дата: </span>{date}</p>
 					<p className={styles.owner}><span className={styles.ownerText}>Автор: </span>{owner}</p>
 				</div>
+
+				<p className={styles.more}>Подробнее</p>
 			</div>
   );
 }

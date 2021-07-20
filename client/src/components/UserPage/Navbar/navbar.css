@@ -23,3 +23,38 @@
 .item a:hover {
 	color: var(--blueDark97);
 }
+
+@media (max-width: 1300px) {
+	.list {
+		flex-direction: column;
+		padding: 37px 1px 30px;
+		background-color: var(--blueMain);
+	}
+	.item:not(:last-child) {
+		margin: 0;
+	}
+	.item {
+		width: 230px;
+	}
+	.item a {
+		display: block;
+		padding: 15px 30px;
+		width: 100%;
+		font-size: 18px;
+		text-align: center;
+		transition: background-color .2s ease-in-out;
+	}
+	.item a:hover {
+		color: var(--white);
+		background-color: var(--blueDark);
+	}
+}
+
+@media (max-width: 1023px) {
+	.header {
+		padding: 17px 0;
+	}
+	.list {
+		align-items: center;
+	}
+}

@@ -1,25 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './header.css';
 import logo from '../../../static/image/logo.webp';
 import {Link} from "react-router-dom";
-import {UserIcon} from "../../icons";
+import {BurgerIcon, CloseIcon, UserIcon} from "../../icons";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store/rootReducer";
 import {UserButton} from "./UserButton";
 import {EntryButton} from "./EntryButton";
-import {storageName} from "../../../hooks/useAuth";
+import classNames from "classnames";
 
 export function Header() {
 	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
 	const loginName = useSelector<RootState>(state => state.auth.loginName);
+	const [isOpen, setIsOpen] = useState(styles.nav);
 
   return (
 		<header id="home">
 			<div className={styles.container}>
-				<img src={logo} alt="логотип"/>
+				<img className={styles.logo} src={logo} alt="логотип"/>
 
-				<nav className={styles.nav}>
-					<ul className={styles.list}>
+				<div className={styles.burger} onClick={() => setIsOpen(styles.isOpen)}>
+					<BurgerIcon />
+				</div>
+
+				<nav className={isOpen}>
+					<div className={styles.closeButton} onClick={() => setIsOpen(styles.nav)}><CloseIcon /></div>
+					<ul className={styles.list} onClick={() => setIsOpen(styles.nav)}>
 						<li className={styles.item}>
 							<a href="#about" className={styles.link}>О проекте</a>
 						</li>

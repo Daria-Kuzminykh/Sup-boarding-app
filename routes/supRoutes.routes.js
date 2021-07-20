@@ -38,22 +38,4 @@ router.delete('/:id', auth, async (req, res) => {
 	}
 });
 
-router.patch('/:id', auth, async (req, res) => {
-	try {
-		const route = Route.findById(req.params.id);
-
-		if (route) {
-			await route.deleteOne();
-		} else {
-			return res.status(404).json({ message: 'Маршрут не найден' });
-		}
-
-		await route.update({})
-
-		res.status(200).json({ message: 'Маршрут изменен' });
-	} catch (e) {
-		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
-	}
-});
-
 module.exports = router;

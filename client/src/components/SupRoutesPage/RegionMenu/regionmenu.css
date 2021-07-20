@@ -18,3 +18,28 @@
 	background-color: var(--blueMainD6);
 	border-color: var(--blueMainD6);
 }
+
+@media (max-width: 1300px) {
+	.button {
+		padding: 15px 25px;
+		font-size: 16px;
+	}
+	.item:not(:last-child) {
+		margin-right: 20px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.list {
+		flex-direction: column;
+		align-items: center;
+	}
+	.item:not(:last-child) {
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+	.button {
+		padding: 12px 40px;
+		font-size: 16px;
+	}
+}

@@ -2,14 +2,23 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import styles from './form.css';
 import {Button} from "../../../Button";
 import {useDispatch, useSelector} from "react-redux";
-import {Auth, EventAction, IEvent, IRoute, RootState, Route, User} from "../../../../store/rootReducer";
+import {
+	Auth,
+	EventAction,
+	EventChangeAction,
+	IEvent,
+	IRoute,
+	RootState,
+	Route,
+	User
+} from "../../../../store/rootReducer";
 import {useHttp} from "../../../../hooks/useHttp";
 import {useHistory} from "react-router-dom";
 import {Message} from "../../../Message";
 import {SpinnerIcon} from "../../../icons";
 
-export function Form() {
-	const form = useSelector<RootState, IEvent>(state => state.event);
+export function Form({isNew}: {isNew: boolean}) {
+	const form = isNew && useSelector<RootState, IEvent>(state => state.event) || useSelector<RootState, IEvent>(state => state.eventChange);
 	const token = useSelector<RootState>(state => state.auth.token);
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -22,7 +31,11 @@ export function Form() {
 	}, [error]);
 
 	function handlerChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-		dispatch(EventAction({ ...form, [event.target.name]: event.target.value }));
+		if (isNew) {
+			dispatch(EventAction({ ...form, [event.target.name]: event.target.value }));
+		} else {
+			dispatch(EventChangeAction({ ...form, [event.target.name]: event.target.value }));
+		}
 	}
 
 	async function handlerSubmit(event: FormEvent) {
@@ -31,16 +44,23 @@ export function Form() {
 		setMessage('');
 
 		try {
-			const data = await request('/user/event-form', 'POST', {...form}, {
-				Authorization: `Bearer ${token}`
-			});
-			setSuccess(data.message);
+			if (isNew) {
+				const data = await request('/user/event-form', 'POST', {...form}, {
+					Authorization: `Bearer ${token}`
+				});
+				setSuccess(data.message);
+				dispatch(EventAction({ name: '', place: '', dateEvent: '', contacts: '', contactTel: '', descr: '' }));
+			} else  {
+				const data = await request('/events/change', 'PATCH', {...form}, {
+					Authorization: `Bearer ${token}`
+				});
+				setSuccess(data.message);
+			}
 			setTimeout(() => {
 				dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
 				history.push('/user');
 			}, 700);
 		} catch (e) {}
-		dispatch(EventAction({ name: '', place: '', dateEvent: '', contacts: '', contactTel: '', descr: '' }));
 	}
 	return (
 		<form onSubmit={handlerSubmit}>

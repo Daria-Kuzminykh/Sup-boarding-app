@@ -17,3 +17,15 @@
 .entry:hover svg {
 	fill: var(--blueDark97);
 }
+
+@media (max-width: 1023px) {
+	.entry svg {
+		width: 30px;
+	}
+	.entry span {
+		display: inline-block;
+		padding: 6px 17px;
+		border: 1px solid var(--white);
+		border-radius: 10px;
+	}
+}

@@ -17,11 +17,14 @@ export function Modal({children, path}: {children: React.ReactNode, path: string
 		<Portal children={
 			<>
 				<div className={styles.overflow}></div>
-				<div className={styles.modal} ref={ref} style={position}>
-					<button className={styles.closeButton} onClick={() => history.push(path)}>
-						<CloseIcon />
-					</button>
-					{children}
+				<div className={styles.modalPosition} style={position}>
+					<div className={styles.modal} ref={ref}>
+						<button className={styles.closeButton} onClick={() => history.push(path)}>
+							<CloseIcon />
+						</button>
+						{children}
+					</div>
+					<div className={styles.paddingBottom}/>
 				</div>
 			</>
 		} />

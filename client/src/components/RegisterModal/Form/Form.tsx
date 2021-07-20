@@ -55,7 +55,7 @@ export function Form({isLogin}: {isLogin: boolean}) {
 					const data = await request('/auth/register', 'POST', {...form});
 					setSuccess(data.message);
 					setTimeout(() => {
-						history.push('/auth/login');
+						history.push('/home/auth/login');
 					}, 700);
 				} else {
 					const data = await request('/auth/login', 'POST', {...form});

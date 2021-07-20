@@ -21,6 +21,15 @@ router.get('/', auth, async (req, res) => {
 	}
 })
 
+router.get('/:id', auth, async (req, res) => {
+	try {
+		const event = await Event.findById(req.params.id);
+		res.json(event);
+	} catch (e) {
+		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
+	}
+})
+
 router.delete('/:id', auth, async (req, res) => {
 	try {
 		const event = Event.findById(req.params.id);
@@ -36,5 +45,18 @@ router.delete('/:id', auth, async (req, res) => {
 		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
 	}
 })
+
+router.patch('/change', auth, async (req, res) => {
+	try {
+		const {name, place, descr, contacts, contactTel, dateEvent, _id} = req.body;
+		await Event.findByIdAndUpdate(_id, {name, place, descr, contacts, contactTel, dateEvent}, {
+			useFindAndModify: false,
+		});
+
+		res.status(200).json({ message: 'Маршрут изменен' });
+	} catch (e) {
+		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
+	}
+});
 
 module.exports = router;

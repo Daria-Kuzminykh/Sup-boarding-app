@@ -1,35 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './navbar.css';
+import stylesMenu from '../../HomePage/Header/header.css'
 import logo from './../../../static/image/logo.webp';
 import {Link, useHistory} from 'react-router-dom';
 import {EntryButton} from "../../HomePage/Header/EntryButton";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store/rootReducer";
+import {BurgerIcon, CloseIcon} from "../../icons";
 
 export function Navbar() {
 	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
 	const history = useHistory();
+	const [isOpen, setIsOpen] = useState(stylesMenu.nav);
 
   return (
 		<div className={styles.header}>
 			<div className="container">
 				<div className={styles.content}>
-					<img src={logo} alt="логотип"/>
+					<div className={stylesMenu.burger} onClick={() => setIsOpen(stylesMenu.isOpen)}>
+						<BurgerIcon />
+					</div>
 
-					<ul className={styles.list}>
-						<li className={styles.item}>
-							<Link to="/">Главная</Link>
-						</li>
-						<li className={styles.item}>
-							<Link to="/routes">Маршруты</Link>
-						</li>
-						<li className={styles.item}>
-							<Link to="/events">События</Link>
-						</li>
-						<li className={styles.item}>
-							<Link to="/user">Личный кабинет</Link>
-						</li>
-					</ul>
+					<img className={stylesMenu.logo} src={logo} alt="логотип"/>
+
+					<nav className={isOpen}>
+						<div className={stylesMenu.closeButton} onClick={() => setIsOpen(stylesMenu.nav)}><CloseIcon /></div>
+						<ul className={styles.list} onClick={() => setIsOpen(stylesMenu.nav)}>
+							<li className={styles.item}>
+								<Link to="/">Главная</Link>
+							</li>
+							<li className={styles.item}>
+								<Link to="/routes">Маршруты</Link>
+							</li>
+							<li className={styles.item}>
+								<Link to="/events">События</Link>
+							</li>
+							<li className={styles.item}>
+								<Link to="/user">Личный кабинет</Link>
+							</li>
+						</ul>
+					</nav>
 
 					{!isAuthenticated && (
 						<Link to="/home/auth/login">

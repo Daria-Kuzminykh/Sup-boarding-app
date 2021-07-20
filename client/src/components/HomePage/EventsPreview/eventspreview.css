@@ -40,6 +40,7 @@
 	position: relative;
 	margin-left: 30px;
 	margin-top: 30px;
+	width: 261px;
 	z-index: 3;
 }
 
@@ -53,4 +54,73 @@
 	top: 520px;
 	left: 67%;
 	z-index: 3;
+}
+
+@media (max-width: 1300px) {
+	.figure3 {
+		top: 140px;
+		left: 70%;
+		width: 300px;
+	}
+	.figure4 {
+		top: 520px;
+		left: 67%;
+		z-index: 3;
+		width: 300px;
+	}
+	.events {
+		padding-bottom: 150px;
+		min-height: 600px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.figure3 {
+		display: none;
+	}
+	.figure4 {
+		top: 530px;
+		left: 50%;
+	}
+	.events {
+		padding-top: 120px;
+		padding-bottom: 150px;
+		min-height: 600px;
+	}
+}
+
+@media (max-width: 700px) {
+	.events {
+		padding-top: 70px;
+		padding-bottom: 130px;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.figure4 {
+		display: none;
+	}
+	.events::after {
+		width: 100%;
+		height: 75px;
+		background-image: url("../../../static/image/border-top-mobile.png");
+		background-size: 100%;
+	}
+	.events::before {
+		width: 100%;
+		height: 75px;
+		background-image: url("../../../static/image/border-bottom-mobile.png");
+		background-size: 100%;
+	}
+	.button {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.button {
+		width: 203px;
+	}
 }

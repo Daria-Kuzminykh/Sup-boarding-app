@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from './eventspage.css';
 import {Navbar} from "../UserPage/Navbar";
 import {Title} from "../Title";
-import {SpinnerIcon} from "../icons";
 import {useHttp} from "../../hooks/useHttp";
 import {useDispatch, useSelector} from "react-redux";
-import {EventsListAction, IEventPreview, IRoutePreview, RootState, RoutesListAction} from "../../store/rootReducer";
-import {RouteCard} from "../SupRoutesPage/RouteCard";
+import {EventsListAction, IEventPreview, RootState} from "../../store/rootReducer";
 import {EventsList} from "./EventsList";
 import {EventCard} from "./EventCard";
 import {Spinner} from "../Spinner";
 import {Break} from "../Break";
+import figure6 from '../../static/image/figure-6.webp';
+import figure7 from '../../static/image/figure-7.webp';
+import {Footer} from "../HomePage/Footer";
 
 export function EventsPage() {
 	const {loading, error, clearError, request} = useHttp();
@@ -44,8 +45,10 @@ export function EventsPage() {
 			<div className="container">
 				<div className={styles.content}>
 					<Title text="События" />
-					<Break size={40} />
-					<p className={styles.text}>Прими участие в одном из событий.</p>
+					<Break size={40} tabletSize={30}/>
+					<img className={styles.figure6} src={figure6} alt="фотография"/>
+					<img className={styles.figure7} src={figure7} alt="фотография"/>
+					<p className={styles.text}>{data.length && 'Прими участие в одном из событий.' || 'Пока не добалено ни одно событие.'}</p>
 
 					{loading && <Spinner />}
 
@@ -65,6 +68,7 @@ export function EventsPage() {
 					}/>}
 				</div>
 			</div>
+			<Footer />
 		</div>
   );
 }

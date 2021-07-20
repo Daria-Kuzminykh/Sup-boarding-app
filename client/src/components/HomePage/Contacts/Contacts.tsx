@@ -11,7 +11,7 @@ export function Contacts() {
 		<section className={styles.contacts}>
 			<div className="container">
 				<Title text="Контакты" id="contacts"/>
-				<Break size={50} />
+				<Break size={50} tabletSize={30} mobileSize={20}/>
 				<p className={styles.text}>Если вас заинтересовал sup-boarding, но у вас нет собственной доски, вы можете воспользоваться прокатом сапов.</p>
 				<h3 className={styles.smallTitle}>Прокат сапов в Красноярске:</h3>
 				<div className={styles.linkBox}>

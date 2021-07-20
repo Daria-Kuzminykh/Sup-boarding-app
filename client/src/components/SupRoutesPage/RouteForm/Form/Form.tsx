@@ -2,7 +2,16 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import styles from './form.css';
 import {Button} from "../../../Button";
 import {useDispatch, useSelector} from "react-redux";
-import {Auth, IRoute, IUser, RootState, Route, User} from "../../../../store/rootReducer";
+import {
+	Auth,
+	IRoute,
+	IUser,
+	RootState,
+	Route,
+	RouteChangeAction,
+	RoutesListAction,
+	User
+} from "../../../../store/rootReducer";
 import {useHttp} from "../../../../hooks/useHttp";
 import {useHistory} from "react-router-dom";
 import {Message} from "../../../Message";
@@ -10,7 +19,7 @@ import {SpinnerIcon} from "../../../icons";
 import {Break} from "../../../Break";
 
 export function Form({isNew}: {isNew: boolean}) {
-	const form = useSelector<RootState, IRoute>(state => state.route);
+	const form = isNew && useSelector<RootState, IRoute>(state => state.route) || useSelector<RootState, IRoute>(state => state.routeChange);
 	const token = useSelector<RootState>(state => state.auth.token);
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -23,7 +32,11 @@ export function Form({isNew}: {isNew: boolean}) {
 	}, [error]);
 
 	function handlerChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-		dispatch(Route({ ...form, [event.target.name]: event.target.value }));
+		if (isNew) {
+			dispatch(Route({ ...form, [event.target.name]: event.target.value }));
+		} else {
+			dispatch(RouteChangeAction({ ...form, [event.target.name]: event.target.value }));
+		}
 	}
 
 	async function handlerSubmit(event: FormEvent) {
@@ -37,17 +50,27 @@ export function Form({isNew}: {isNew: boolean}) {
 					Authorization: `Bearer ${token}`
 				});
 				setSuccess(data.message);
+				dispatch(Route({region: 'Красноярский край', place: '', name: '', level: '1', time: '', fotoLink: '', descr: '', plus: '', minus: '', dateEvent: '',}));
+
+				setTimeout(() => {
+					dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
+					history.push('/user/route-cover');
+				}, 700);
+
+			} else {
+				const data = await request('/change-route', 'PATCH', {...form}, {
+					Authorization: `Bearer ${token}`
+				});
+				setSuccess(data.message);
+				setTimeout(() => {
+					dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
+					history.push('/user');
+				}, 700);
 			}
-			setTimeout(() => {
-				dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
-				history.push('/user');
-			}, 700);
 		} catch (e) {}
-		dispatch(Route({region: 'Красноярский край', place: '', name: '', level: '1', time: '', fotoLink: '', descr: '', plus: '', minus: '', dateEvent: '',
-		}));
 	}
   return (
-		<form onSubmit={handlerSubmit}>
+		<form onSubmit={handlerSubmit} encType="multipart/form-data">
 			<div className={styles.inputBox}>
 				<label htmlFor="name">1. Введите название маршрута*</label>
 				<input
@@ -159,21 +182,7 @@ export function Form({isNew}: {isNew: boolean}) {
 				/>
 			</div>
 
-			<div className={styles.inputBox}>
-				<label htmlFor="preview">10. Вставьте фотографию для обложки карточки маршрута.</label>
-				<input
-					className={styles.input}
-					// value={form.preview}
-					id="preview"
-					name="preview"
-					type="file"
-					placeholder="Фото для обложки"
-					accept=".png, .jpg, .jpeg, .webp"
-					// onChange={handlerChange}
-				/>
-			</div>
-
-			<Break size={20} />
+			<Break size={20}  mobileSize={10}/>
 
 			{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 

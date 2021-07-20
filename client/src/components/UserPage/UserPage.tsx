@@ -16,6 +16,8 @@ import {UserData} from "./UserData";
 import {Break} from "../Break";
 import {NoRegister} from "./NoRegister";
 import {ActionBlock} from "./ActionBlock";
+import {UpButton} from "../HomePage/UpButton";
+import {Footer} from "../HomePage/Footer";
 
 export function UserPage() {
 	const token = useSelector<RootState>(state => state.auth.token);
@@ -52,7 +54,7 @@ export function UserPage() {
 			<div className="container">
 				<div className={styles.content}>
 					<Title text="Личный кабинет" />
-					<Break size={60} />
+					<Break size={60} tabletSize={40} mobileSize={30}/>
 					<p className={styles.hello}>Здравствуй, {name}!</p>
 
 					<UserData />
@@ -72,7 +74,7 @@ export function UserPage() {
 												level={route.level}
 												time={route.time}
 												owner={route.ownerFullName}
-												img="../../../../static/image/route-1.webp"
+												img={route.cover || ''}
 												id={route.id}
 											/>
 											<ActionBlock isRoute={true} id={route.id} />
@@ -111,13 +113,15 @@ export function UserPage() {
 						</>
 					} />
 
-					<Break size={40} />
+					<Break size={40} mobileSize={20}/>
 
 					<div className={styles.buttonCenter} onClick={() => history.push('/user/event-form')}>
 						<Button text="добавить событие"/>
 					</div>
 				</div>
 			</div>
+			<Footer />
+			<UpButton />
     </div>
   );
 }

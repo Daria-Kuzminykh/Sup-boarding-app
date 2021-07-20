@@ -11,7 +11,7 @@ export function EventForm() {
 			<>
 				<ModalTitle text="Событие" />
 				<Break size={30} />
-				<Form />
+				<Form isNew={true}/>
 			</>
 		} />
   );

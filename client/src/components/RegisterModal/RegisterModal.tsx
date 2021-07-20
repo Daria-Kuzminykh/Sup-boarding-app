@@ -10,7 +10,7 @@ export function RegisterModal() {
   	<Modal path="/" children={
   		<>
 				<ModalTitle text="Регистрация" />
-				<Break size={30} />
+				<Break size={30} mobileSize={20}/>
 				<Form isLogin={false} />
 			</>
 		} />

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './break.css';
 import classNames from "classnames";
 
-type TBreakSize = 10 | 20 | 30 | 40 | 50 | 60
+type TBreakSize = 0 | 10 | 20 | 30 | 40 | 50 | 60
 
 interface IBreak {
 	size: TBreakSize;

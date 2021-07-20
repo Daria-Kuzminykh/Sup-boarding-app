@@ -31,11 +31,11 @@ export function DeleteModal() {
 			setTimeout(() => {
 				dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
 
-				if (deleteElement.isRoute) {
-					dispatch(RoutesListAction([]));
-				} else {
-					dispatch(EventsListAction([]));
-				}
+				// if (deleteElement.isRoute) {
+				// 	dispatch(RoutesListAction([]));
+				// } else {
+				// 	dispatch(EventsListAction([]));
+				// }
 
 				history.push('/user');
 			}, 700);

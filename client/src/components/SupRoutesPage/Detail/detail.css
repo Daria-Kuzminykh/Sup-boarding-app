@@ -1,0 +1,61 @@
+.name {
+	margin-bottom: 30px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 32px;
+}
+.region span,
+.place span,
+.date span,
+.tel span {
+	color: var(--gray99);
+}
+
+.region,
+.place {
+	line-height: 32px;
+}
+.place {
+	margin-bottom: 25px;
+}
+
+.smallTitle {
+	margin: 0 0 15px;
+	font-size: 16px;
+	font-weight: 600;
+}
+.text, .foto, .date {
+	margin-bottom: 25px;
+}
+.text {
+	line-height: 32px;
+}
+.link {
+	color: var(--blueMain);
+}
+.link:hover {
+	text-decoration: underline;
+}
+
+.clicks {
+	position: absolute;
+	bottom: 25px;
+	right: 25px;
+	color: var(--grayCC);
+}
+
+@media (max-width: 1023px) {
+	.name {
+		margin-bottom: 20px;
+	}
+	.date {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 370px) {
+	.date span {
+		display: block;
+		margin-bottom: 10px;
+	}
+}

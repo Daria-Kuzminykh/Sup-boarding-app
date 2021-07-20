@@ -4,7 +4,7 @@ const schema = new Schema({
   region: {type: String, required: true},
   place: {type: String, required: true},
   name: {type: String, required: true},
-  // preview: {type: Image},
+  cover: {type: String},
   level: {type: Number, required: true},
   time: {type: Number, required: true},
   owner: {type: Types.ObjectId, ref: 'User'},

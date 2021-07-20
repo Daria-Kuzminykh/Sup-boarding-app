@@ -1,5 +1,5 @@
 .button {
-	padding: 17px 60px;
+	padding: 15px 60px;
 	color: var(--white);
 	font-family: 'Gotham Pro', sans-serif;
 	font-weight: 600;
@@ -22,4 +22,12 @@
 .button:focus {
 	outline: none;
 	border-color: var(--blueDark97);
+}
+
+@media (max-width: 600px) {
+	.button {
+		padding: 13px 47px;
+		font-size: 12px;
+		text-align: center;
+	}
 }

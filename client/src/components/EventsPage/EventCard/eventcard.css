@@ -35,7 +35,10 @@
 	margin-right: 30px;
 	width: 1px;
 	height: 70px;
-	background-color: var(--grayCC);
+	background-color: var(--blueDark97);
+}
+.more {
+	display: none;
 }
 
 
@@ -48,4 +51,48 @@
 .card:hover p,
 .card:hover span{
 	color: var(--white);
+}
+
+@media (max-width: 700px) {
+	.card {
+		flex-direction: column;
+		margin: 0 auto;
+		max-width: 290px;
+	}
+	.card svg {
+		margin-right: 0;
+		margin-bottom: 10px;
+		width: 50px;
+	}
+	.separator {
+		width: 70px;
+		height: 1px;
+	}
+	.left,
+	.separator {
+		margin-right: 0;
+	}
+	.name,
+	.place,
+	.owner,
+	.date {
+		text-align: center;
+		line-height: 26px;
+	}
+	.place,
+	.separator {
+		margin-bottom: 20px;
+	}
+	.name,
+	.date {
+		margin-bottom: 10px;
+	}
+	.more {
+		display: block;
+		color: var(--blueMain);
+		text-decoration: underline;
+	}
+	.owner {
+		margin-bottom: 15px;
+	}
 }

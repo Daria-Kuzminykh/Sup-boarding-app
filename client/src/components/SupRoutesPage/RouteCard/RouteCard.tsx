@@ -2,6 +2,12 @@ import React from 'react';
 import styles from './routecard.css';
 import {ClockIcon, LevelFiveIcon, LevelFourIcon, LevelOneIcon, LevelThereIcon, LevelTwoIcon} from "../../icons";
 import {Link, useLocation} from "react-router-dom";
+import cover1 from '../../../static/image/cover1.webp';
+import cover2 from '../../../static/image/cover2.webp';
+import cover3 from '../../../static/image/cover3.webp';
+import cover4 from '../../../static/image/cover4.webp';
+import cover5 from '../../../static/image/cover5.webp';
+
 
 interface ICard {
 	name: string;
@@ -14,6 +20,8 @@ interface ICard {
 }
 
 export function RouteCard({ name, id, level, owner, place, time, img }: ICard) {
+	const cover = img || level === 1 && cover4 || level === 2 && cover3 || level === 3 && cover2 || level === 4 && cover1 || level === 5 && cover5;
+
   return (
 		<div className={styles.card}>
 			<div className={styles.overflow}>
@@ -22,7 +30,7 @@ export function RouteCard({ name, id, level, owner, place, time, img }: ICard) {
 			</div>
 			<div className={styles.plug}/>
 			<div className={styles.imgBox}>
-				<img src={img} alt="фотография места"/>
+				<img className={styles.cardCover} src={cover} alt="фотография места или обложка"/>
 			</div>
 			<div className={styles.content}>
 				<h3 className={styles.title}>{name}</h3>
@@ -52,6 +60,8 @@ export function RouteCard({ name, id, level, owner, place, time, img }: ICard) {
 					<ClockIcon />
 					<span>{time} {time === 1 && <span>час</span> || time < 5 && <span>часа</span> || time > 4 && <span>часов</span>} плавания</span>
 				</div>
+
+				<p className={styles.more}>Подробнее</p>
 			</div>
 		</div>
   );

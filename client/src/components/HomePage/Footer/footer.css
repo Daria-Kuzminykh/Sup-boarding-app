@@ -1,4 +1,7 @@
 .footer {
+	position: relative;
+	bottom: 0;
+	z-index: 4;
 	padding: 20px 0;
 	background-color: var(--blueDark);
 }
@@ -13,7 +16,8 @@
 	align-items: center;
 }
 .logo {
-	margin-right: 30px;
+	margin-right: 20px;
+	width: 100px;
 }
 .email {
 	font-size: 16px;
@@ -31,5 +35,20 @@
 	color: var(--white);
 }
 .vk {
+	position: relative;
 	margin-right: 10px;
+	z-index: 4;
+}
+
+@media (max-width: 900px) {
+	.footer {
+		padding: 10px 0;
+	}
+	.email,
+	.copyright {
+		display: none;
+	}
+	.logo {
+		width: 80px;
+	}
 }
