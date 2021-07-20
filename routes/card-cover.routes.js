@@ -11,9 +11,13 @@ router.post('/', (req, res) => {
 		const coverFile = req.files.cover;
 		const uploadPath = 'files/' + coverFile.name;
 
+		if (!coverFile.mimetype.includes('image')) {
+			return res.status(400).json({message: 'Некорректный тип файла'});
+		}
+
 		coverFile.mv(uploadPath, (err) => {
 			if (err) return res.status(500).send(err);
-			res.status(400).json({ message: 'Файл загружен' });
+			res.redirect('http://localhost:3000/');
 		})
 	} catch (e) {
 		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
