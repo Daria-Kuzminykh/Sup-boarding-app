@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {EventsListAction, IDeleteElement, RootState, RoutesListAction, User} from "../../../store/rootReducer";
 import {useHttp} from "../../../hooks/useHttp";
 import {Message} from "../../Message";
+import {SpinnerIcon} from "../../icons";
 
 export function DeleteModal() {
 	const history = useHistory();
@@ -31,12 +32,6 @@ export function DeleteModal() {
 			setTimeout(() => {
 				dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
 
-				// if (deleteElement.isRoute) {
-				// 	dispatch(RoutesListAction([]));
-				// } else {
-				// 	dispatch(EventsListAction([]));
-				// }
-
 				history.push('/user');
 			}, 700);
 		} catch (e) {}
@@ -54,7 +49,7 @@ export function DeleteModal() {
 				{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 
 				<div className={styles.button} onClick={handlerClick}>
-					<Button text="Удалить" />
+					<Button text="Удалить" loading={loading}/>
 				</div>
 
 				<Link to="/user">Отмена</Link>

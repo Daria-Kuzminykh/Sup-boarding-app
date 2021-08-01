@@ -54,7 +54,7 @@ export function Form({isNew}: {isNew: boolean}) {
 
 				setTimeout(() => {
 					dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
-					history.push('/user/route-cover');
+					history.push('/user');
 				}, 700);
 
 			} else {
@@ -81,6 +81,8 @@ export function Form({isNew}: {isNew: boolean}) {
 					type="text"
 					placeholder="Название"
 					onChange={handlerChange}
+					required={true}
+					minLength={2}
 				/>
 			</div>
 
@@ -104,6 +106,8 @@ export function Form({isNew}: {isNew: boolean}) {
 					type="text"
 					placeholder="Место"
 					onChange={handlerChange}
+					required={true}
+					minLength={2}
 				/>
 			</div>
 
@@ -130,6 +134,7 @@ export function Form({isNew}: {isNew: boolean}) {
 					max={1000}
 					placeholder="Количество часов"
 					onChange={handlerChange}
+					required={true}
 				/>
 			</div>
 
@@ -170,7 +175,7 @@ export function Form({isNew}: {isNew: boolean}) {
 			</div>
 
 			<div className={styles.inputBox}>
-				<label htmlFor="fotoLink">9. Ввставьте ссылку на фотографии с маршрута</label>
+				<label htmlFor="fotoLink">9. Если у вас есть облачное хранилище данных (например Google-диск), то вставьте ссылку на фотографии с маршрута</label>
 				<input
 					className={styles.input}
 					value={form.fotoLink}
@@ -187,8 +192,7 @@ export function Form({isNew}: {isNew: boolean}) {
 			{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 
 			<div className={styles.button}>
-				{loading && <SpinnerIcon fill="#ffffff" />}
-				<Button text="Сохранить" />
+				<Button text="Сохранить" loading={loading}/>
 			</div>
 		</form>
   );

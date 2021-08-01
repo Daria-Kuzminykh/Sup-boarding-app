@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import styles from './form.css';
-import {EyeCrossIcon, EyeIcon, SpinnerIcon} from "../../icons";
+import {EyeCrossIcon, EyeIcon} from "../../icons";
 import {Button} from "../../Button";
 import {useHttp} from "../../../hooks/useHttp";
 import {Message} from "../../Message";
@@ -78,6 +78,9 @@ export function Form({isLogin}: {isLogin: boolean}) {
 					type="text"
 					placeholder="Введите логин"
 					onChange={handlerChange}
+					required={true}
+					minLength={4}
+					maxLength={15}
 				/>
 				<label className={styles.label} htmlFor="loginName">Введите логин</label>
 			</div>
@@ -91,6 +94,8 @@ export function Form({isLogin}: {isLogin: boolean}) {
 					type={inputType}
 					placeholder="Введите пароль"
 					onChange={handlerChange}
+					required={true}
+					minLength={6}
 				/>
 				<label className={styles.label} htmlFor="password">Введите пароль</label>
 				<div className={styles.visibility} onClick={handlerClick}>
@@ -110,6 +115,7 @@ export function Form({isLogin}: {isLogin: boolean}) {
 							type="text"
 							placeholder="Имя"
 							onChange={handlerChange}
+							required={true}
 						/>
 						<label className={styles.label} htmlFor="name">Имя</label>
 					</div>
@@ -122,6 +128,7 @@ export function Form({isLogin}: {isLogin: boolean}) {
 							type="text"
 							placeholder="Фамилия"
 							onChange={handlerChange}
+							required={true}
 						/>
 						<label className={styles.label} htmlFor="surname">Фамилия</label>
 					</div>
@@ -129,7 +136,6 @@ export function Form({isLogin}: {isLogin: boolean}) {
 			)}
 			{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 			<div className={styles.button}>
-				{loading && <SpinnerIcon fill="#ffffff" />}
 				<Button text={textButton} loading={loading}/>
 			</div>
 		</form>

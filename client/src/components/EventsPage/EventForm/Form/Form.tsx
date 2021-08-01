@@ -74,6 +74,8 @@ export function Form({isNew}: {isNew: boolean}) {
 					type="text"
 					placeholder="Название"
 					onChange={handlerChange}
+					required={true}
+					minLength={2}
 				/>
 			</div>
 
@@ -87,6 +89,8 @@ export function Form({isNew}: {isNew: boolean}) {
 					type="text"
 					placeholder="Место"
 					onChange={handlerChange}
+					required={true}
+					minLength={2}
 				/>
 			</div>
 
@@ -100,6 +104,7 @@ export function Form({isNew}: {isNew: boolean}) {
 					type="date"
 					placeholder="Дата"
 					onChange={handlerChange}
+					required={true}
 				/>
 			</div>
 
@@ -125,6 +130,7 @@ export function Form({isNew}: {isNew: boolean}) {
 					type="text"
 					placeholder="Контакты"
 					onChange={handlerChange}
+					required={true}
 				/>
 			</div>
 
@@ -146,8 +152,7 @@ export function Form({isNew}: {isNew: boolean}) {
 			{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 
 			<div className={styles.button}>
-				{loading && <SpinnerIcon fill="#ffffff" />}
-				<Button text="Сохранить" />
+				<Button text="Сохранить" loading={loading}/>
 			</div>
 		</form>
 	);

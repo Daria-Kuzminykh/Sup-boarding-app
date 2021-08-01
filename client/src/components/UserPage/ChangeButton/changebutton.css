@@ -1,4 +1,5 @@
 .button {
+	position: relative;
 	padding: 10px 40px;
 	border: 1px solid var(--blueMain);
 	border-radius: 10px;
@@ -12,6 +13,15 @@
 }
 .button:active {
 	border-color: var(--blueDark97);
+}
+
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	width: 20px;
+	height: 20px;
+	transform: translateY(-50%);
 }
 
 @media (max-width: 370px) {

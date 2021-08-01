@@ -46,7 +46,7 @@ export function SupRoutesPage() {
 
 					{!data.length && !loading && !tabLoading && <p className={styles.notRouteText}>В данной категории нет ни одного маршрута.</p>}
 
-					{(loading || tabLoading) && <Spinner />}
+					{(loading || tabLoading) && <div className={styles.loading}><Spinner /></div>}
 
 					{!loading && !tabLoading && <RoutesList children={
 						data.map((route: IRoutePreview) => {

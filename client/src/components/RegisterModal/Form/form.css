@@ -60,14 +60,6 @@
 	line-height: 32px;
 }
 
-.button svg {
-	position: absolute;
-	top: 15px;
-	left: 29%;
-	width: 25px;
-	height: 25px;
-}
-
 @media (max-width: 1023px) {
 	.inputBox {
 		margin-bottom: 20px;

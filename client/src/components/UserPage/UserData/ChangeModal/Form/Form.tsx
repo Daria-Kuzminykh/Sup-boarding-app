@@ -126,7 +126,6 @@ export function Form() {
 
 			{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 			<div className={styles.button}>
-				{loading && <SpinnerIcon fill="#ffffff" />}
 				<Button text="Сохранить" loading={loading}/>
 			</div>
 		</form>

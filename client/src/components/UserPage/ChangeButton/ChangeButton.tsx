@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 import {useHttp} from "../../../hooks/useHttp";
 import {useDispatch, useSelector} from "react-redux";
 import {EventChangeAction, RootState, RouteChangeAction} from "../../../store/rootReducer";
+import {SpinnerIcon} from "../../icons";
 
 export function ChangeButton({ isRoute, id }: IActionButton) {
 	const history = useHistory();
@@ -27,6 +28,15 @@ export function ChangeButton({ isRoute, id }: IActionButton) {
 			}
 		} catch (e) {}
 		;
+	}
+
+	if (loading) {
+		return <button className={styles.button}>
+			<div className={styles.loading}>
+				<SpinnerIcon fill="#fff" width="20" height="20"/>
+			</div>
+			Изменить
+		</button>
 	}
 
   return (

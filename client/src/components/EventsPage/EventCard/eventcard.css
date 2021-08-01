@@ -5,6 +5,7 @@
 	max-width: 670px;
 	border-radius: 10px;
 	cursor: pointer;
+	transition: all .3s ease-in-out;
 }
 .card svg  {
 	margin-right: 30px;

@@ -16,6 +16,7 @@
 .inputBox label {
 	display: block;
 	margin-bottom: 20px;
+	line-height: 28px;
 }
 .inputBox {
 	margin-bottom: 30px;
@@ -36,13 +37,6 @@
 	position: relative;
 	margin-top: 20px;
 }
-.button svg {
-	position: absolute;
-	top: 12px;
-	left: 31%;
-	width: 30px;
-	height: 30px;
-}
 
 @media (max-width: 1023px) {
 	.inputBox {
@@ -53,7 +47,6 @@
 	}
 	.inputBox label {
 		margin-bottom: 15px;
-		line-height: 28px;
 	}
 	.select,
 	.select option {

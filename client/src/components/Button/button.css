@@ -1,4 +1,5 @@
 .button {
+	position: relative;
 	padding: 15px 60px;
 	color: var(--white);
 	font-family: 'Gotham Pro', sans-serif;
@@ -23,11 +24,24 @@
 	outline: none;
 	border-color: var(--blueDark97);
 }
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	width: 25px;
+	height: 25px;
+	transform: translateY(-50%);
+}
 
 @media (max-width: 600px) {
 	.button {
 		padding: 13px 47px;
 		font-size: 12px;
 		text-align: center;
+	}
+	.loading,
+	.loading svg {
+		width: 20px;
+		height: 20px;
 	}
 }

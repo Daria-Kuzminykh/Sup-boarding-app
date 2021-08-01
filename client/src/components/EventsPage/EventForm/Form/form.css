@@ -39,13 +39,6 @@
 .break {
 	height: 20px;
 }
-.button svg {
-	position: absolute;
-	top: 12px;
-	left: 31%;
-	width: 30px;
-	height: 30px;
-}
 
 @media (max-width: 1023px) {
 	.inputBox {

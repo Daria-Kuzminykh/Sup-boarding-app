@@ -53,7 +53,7 @@ router.patch('/change', auth, async (req, res) => {
 			useFindAndModify: false,
 		});
 
-		res.status(200).json({ message: 'Маршрут изменен' });
+		res.status(200).json({ message: 'Событие изменено' });
 	} catch (e) {
 		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
 	}

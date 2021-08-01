@@ -11,7 +11,7 @@ export function EventModal({path}: {path: string}) {
 			<>
 				<ModalTitle text="Событие" />
 				<Break size={30} mobileSize={20}/>
-				<div className={styles.content}>
+				<div className={styles.container}>
 					<Detail />
 				</div>
 			</>
