@@ -17,7 +17,7 @@ export function Footer() {
 						<a className={styles.vk} target="_blank" href="https://vk.com/id516034149">
 							<VKIcon />
 						</a>
-						<a className={styles.insta} target="_blank" href="#">
+						<a className={styles.insta} target="_blank" href="https://www.instagram.com/kuzminykh_daria99/?utm_medium=copy_link">
 							<InstagramIcon />
 						</a>
 					</div>

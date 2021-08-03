@@ -7,7 +7,7 @@ import {Message} from "../../Message";
 import {useHistory} from "react-router-dom";
 import {useAuth} from "../../../hooks/useAuth";
 import {useDispatch} from "react-redux";
-import {Auth} from "../../../store/rootReducer";
+import {Auth} from "../../../store/actions";
 
 export function Form({isLogin}: {isLogin: boolean}) {
 	const history = useHistory();
@@ -61,7 +61,7 @@ export function Form({isLogin}: {isLogin: boolean}) {
 					const data = await request('/auth/login', 'POST', {...form});
 					login(data.token, data.userId, data.loginName);
 					dispatch(Auth({ token: data.token, userId: data.userId, isAuthenticated: true, loginName: data.loginName }));
-					history.push('/');
+					history.push('/user');
 				}
 		} catch (e) {}
 	}

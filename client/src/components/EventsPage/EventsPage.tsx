@@ -4,7 +4,7 @@ import {Navbar} from "../UserPage/Navbar";
 import {Title} from "../Title";
 import {useHttp} from "../../hooks/useHttp";
 import {useDispatch, useSelector} from "react-redux";
-import {EventsListAction, IEventPreview, RootState} from "../../store/rootReducer";
+import {IEventPreview, RootState} from "../../store/rootState";
 import {EventsList} from "./EventsList";
 import {EventCard} from "./EventCard";
 import {Spinner} from "../Spinner";
@@ -12,12 +12,15 @@ import {Break} from "../Break";
 import figure6 from '../../static/image/figure-6.webp';
 import figure7 from '../../static/image/figure-7.webp';
 import {Footer} from "../HomePage/Footer";
+import {EventsListAction} from "../../store/actions";
+import {useHistory} from "react-router-dom";
 
 export function EventsPage() {
 	const {loading, error, clearError, request} = useHttp();
 	const data = useSelector<RootState, Array<IEventPreview>>(state => state.eventsList);
 	const token = useSelector<RootState>(state => state.auth.token);
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	async function loadingData() {
 		clearError();
@@ -34,11 +37,8 @@ export function EventsPage() {
 		loadingData();
 	}, []);
 
-	if (error) {
-		return (
-			<p className={styles.error}>К сожалению, произошла ошибка. {error}</p>
-		)
-	}
+	if (error) history.push('/no-register');
+
   return (
 		<div className={styles.eventsPage}>
 			<Navbar />

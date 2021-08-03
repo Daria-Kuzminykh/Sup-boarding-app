@@ -2,20 +2,11 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import styles from './form.css';
 import {Button} from "../../../Button";
 import {useDispatch, useSelector} from "react-redux";
-import {
-	Auth,
-	EventAction,
-	EventChangeAction,
-	IEvent,
-	IRoute,
-	RootState,
-	Route,
-	User
-} from "../../../../store/rootReducer";
+import {IEvent, RootState,} from '../../../../store/rootState';
+import {EventAction, EventChangeAction, User} from "../../../../store/actions";
 import {useHttp} from "../../../../hooks/useHttp";
 import {useHistory} from "react-router-dom";
 import {Message} from "../../../Message";
-import {SpinnerIcon} from "../../../icons";
 
 export function Form({isNew}: {isNew: boolean}) {
 	const form = isNew && useSelector<RootState, IEvent>(state => state.event) || useSelector<RootState, IEvent>(state => state.eventChange);
@@ -25,6 +16,8 @@ export function Form({isNew}: {isNew: boolean}) {
 	const {request, loading, error, clearError} = useHttp();
 	const [message, setMessage] = useState('');
 	const [success, setSuccess] = useState('');
+
+	if (error === 'Нет авторизации') history.push('/no-register');
 
 	useEffect(() => {
 		setMessage(error);

@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from './userpage.css';
 import {useHttp} from "../../hooks/useHttp";
 import {useDispatch, useSelector} from "react-redux";
-import {Auth, IEventPreview, IRoutePreview, RootState, User} from "../../store/rootReducer";
+import {Auth, User} from "../../store/actions";
+import {IEventPreview, IRoutePreview, RootState} from "../../store/rootState";
 import {Navbar} from "./Navbar";
 import {Title} from "../Title";
 import {Button} from "../Button";
@@ -14,7 +15,6 @@ import { RouteCard } from '../SupRoutesPage/RouteCard/RouteCard';
 import { EventCard } from '../EventsPage/EventCard';
 import {UserData} from "./UserData";
 import {Break} from "../Break";
-import {NoRegister} from "./NoRegister";
 import {ActionBlock} from "./ActionBlock";
 import {UpButton} from "../HomePage/UpButton";
 import {Footer} from "../HomePage/Footer";
@@ -46,7 +46,7 @@ export function UserPage() {
 
 	if (loading) return (<Spinner />)
 
-	if (error) return (<NoRegister />);
+	if (error) history.push('/no-register');
 
   return (
     <div className={styles.userPage}>
@@ -76,6 +76,7 @@ export function UserPage() {
 												owner={route.ownerFullName}
 												img={route.cover || ''}
 												id={route.id}
+												coverNumber={route.coverChoice}
 											/>
 											<ActionBlock isRoute={true} id={route.id} />
 										</li>

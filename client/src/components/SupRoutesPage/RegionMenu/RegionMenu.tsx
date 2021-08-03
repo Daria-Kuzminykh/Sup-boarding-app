@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './regionmenu.css';
 import {useDispatch, useSelector} from "react-redux";
-import {chooseRegionTab, IRegionTab, RootState, RoutesListAction} from "../../../store/rootReducer";
+import { IRegionTab, RootState } from "../../../store/rootState";
+import {chooseRegionTab, RoutesListAction} from "../../../store/actions";
 import classNames from "classnames";
 import {useHttp} from "../../../hooks/useHttp";
 

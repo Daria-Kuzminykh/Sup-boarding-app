@@ -2,19 +2,34 @@ import React from 'react';
 import styles from './logoutmodal.css';
 import {Modal} from "../Modal";
 import {Button} from "../Button";
-import {Link} from "react-router-dom";
-import {Auth, User} from "../../store/rootReducer";
+import {useHistory} from "react-router-dom";
+import {Auth, User} from "../../store/actions";
 import {useAuth} from "../../hooks/useAuth";
 import {useDispatch} from "react-redux";
+import {useAnimation} from "../../hooks/useAnimation";
 
 export function LogoutModal() {
 	const { logout } = useAuth();
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	function handlerClick() {
-		logout();
-		dispatch(Auth({ token: '', userId: '', isAuthenticated: false, loginName: '' }));
-		dispatch(User({ name: '', surname: '', supRoutes: [], events: [], }));
+		useAnimation();
+
+		setTimeout(() => {
+			logout();
+			dispatch(Auth({ token: '', userId: '', isAuthenticated: false, loginName: '' }));
+			dispatch(User({ name: '', surname: '', supRoutes: [], events: [], }));
+			history.push('/');
+		}, 200)
+	}
+
+	function handlerClickLink() {
+		useAnimation();
+
+		setTimeout(() => {
+			history.push('/');
+		}, 200);
 	}
 
   return (
@@ -24,7 +39,7 @@ export function LogoutModal() {
 				<div className={styles.button} onClick={handlerClick}>
 					<Button text="Выйти" />
 				</div>
-				<Link to="/">Отмена</Link>
+				<a onClick={handlerClickLink}>Отмена</a>
 			</div>
 		} />
   );

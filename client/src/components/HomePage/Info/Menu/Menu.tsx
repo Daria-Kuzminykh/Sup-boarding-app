@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './menu.css';
 import {useDispatch, useSelector} from "react-redux";
-import {chooseTab, RootState} from "../../../../store/rootReducer";
+import {RootState} from "../../../../store/rootState";
+import {chooseTab} from "../../../../store/actions";
 import classNames from "classnames";
 
 export function Menu() {

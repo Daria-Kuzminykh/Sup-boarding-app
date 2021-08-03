@@ -3,7 +3,7 @@ import styles from './info.css';
 import {Title} from "../../Title";
 import raider from '../../../static/image/raider.webp';
 import {useSelector} from "react-redux";
-import {RootState} from "../../../store/rootReducer";
+import {RootState} from "../../../store/rootState";
 import {Menu} from "./Menu";
 import {Break} from "../../Break";
 

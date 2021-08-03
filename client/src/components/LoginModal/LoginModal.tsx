@@ -1,9 +1,9 @@
-import React, {MouseEventHandler} from 'react';
+import React from 'react';
 import styles from './loginmodal.css';
 import {ModalTitle} from "../Modal/ModalTitle";
 import {Modal} from "../Modal";
 import {Form} from "../RegisterModal/Form";
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {Break} from "../Break";
 
 export function LoginModal() {

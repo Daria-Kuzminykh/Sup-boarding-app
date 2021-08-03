@@ -3,7 +3,7 @@ import styles from './eventspreview.css';
 import {Title} from "../../Title";
 import {EventCard} from "../../EventsPage/EventCard";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../store/rootReducer";
+import {RootState} from "../../../store/rootState";
 import {useHistory} from 'react-router-dom';
 import {Button} from "../../Button";
 import figure3 from '../../../static/image/figure-3.webp';

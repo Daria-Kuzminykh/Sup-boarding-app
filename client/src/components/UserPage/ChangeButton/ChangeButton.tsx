@@ -4,7 +4,8 @@ import {IActionButton} from "../ActionBlock";
 import {useHistory} from "react-router-dom";
 import {useHttp} from "../../../hooks/useHttp";
 import {useDispatch, useSelector} from "react-redux";
-import {EventChangeAction, RootState, RouteChangeAction} from "../../../store/rootReducer";
+import {EventChangeAction, RouteChangeAction} from "../../../store/actions";
+import {RootState} from "../../../store/rootState";
 import {SpinnerIcon} from "../../icons";
 
 export function ChangeButton({ isRoute, id }: IActionButton) {
@@ -15,9 +16,10 @@ export function ChangeButton({ isRoute, id }: IActionButton) {
 
 	async function handlerClick() {
 		try {
+			clearError();
 			if (isRoute) {
-				const { region, place, name, level, time, fotoLink, descr, plus, minus, _id } = await request(`/change-route/${id}`);
-				dispatch(RouteChangeAction({ region, place, name, level, time, fotoLink, descr, plus, minus, _id }));
+				const { region, place, name, level, time, fotoLink, descr, plus, minus, _id, coverChoice, stravaLink, coordinatesLink } = await request(`/change-route/${id}`);
+				dispatch(RouteChangeAction({ region, place, name, level, time, fotoLink, descr, plus, minus, _id, coverChoice, stravaLink, coordinatesLink }));
 				history.push('/user/change-route');
 			} else {
 				const { name, place, descr, contacts, contactTel, dateEvent, _id } = await request(`/events/${id}`, 'GET', null, {
@@ -38,6 +40,8 @@ export function ChangeButton({ isRoute, id }: IActionButton) {
 			Изменить
 		</button>
 	}
+
+	if (error) history.push('/no-register');
 
   return (
 		<button className={styles.button} onClick={handlerClick}>Изменить</button>

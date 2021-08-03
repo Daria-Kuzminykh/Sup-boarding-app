@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './routecard.css';
 import {ClockIcon, LevelFiveIcon, LevelFourIcon, LevelOneIcon, LevelThereIcon, LevelTwoIcon} from "../../icons";
-import {Link, useLocation} from "react-router-dom";
-import cover1 from '../../../static/image/cover1.webp';
-import cover2 from '../../../static/image/cover2.webp';
-import cover3 from '../../../static/image/cover3.webp';
-import cover4 from '../../../static/image/cover4.webp';
-import cover5 from '../../../static/image/cover5.webp';
+import {Link} from "react-router-dom";
+import cover6 from '../../../static/image/cover1.webp';
+import cover5 from '../../../static/image/cover2.webp';
+import cover4 from '../../../static/image/cover3.webp';
+import cover3 from '../../../static/image/cover4.webp';
+import cover2 from '../../../static/image/cover5.webp';
+import cover1 from '../../../static/image/cover6.webp';
 
 
 interface ICard {
@@ -17,10 +18,11 @@ interface ICard {
 	time: number;
 	id: string;
 	img: string;
+	coverNumber: number;
 }
 
-export function RouteCard({ name, id, level, owner, place, time, img }: ICard) {
-	const cover = img || level === 1 && cover4 || level === 2 && cover3 || level === 3 && cover2 || level === 4 && cover1 || level === 5 && cover5;
+export function RouteCard({ name, id, level, owner, place, time, img, coverNumber }: ICard) {
+	const cover = img || coverNumber === 1 && cover1 || coverNumber === 2 && cover2 || coverNumber === 3 && cover3 || coverNumber === 4 && cover4 || coverNumber === 5 && cover5  || coverNumber === 6 && cover6;
 
   return (
 		<div className={styles.card}>
@@ -30,7 +32,7 @@ export function RouteCard({ name, id, level, owner, place, time, img }: ICard) {
 			</div>
 			<div className={styles.plug}/>
 			<div className={styles.imgBox}>
-				<img className={styles.cardCover} src={cover} alt="фотография места или обложка"/>
+				<img className={styles.cardCover} src={String(cover)} alt="фотография места или обложка"/>
 			</div>
 			<div className={styles.content}>
 				<h3 className={styles.title}>{name}</h3>

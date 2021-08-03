@@ -1,10 +1,11 @@
 import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import styles from '../../../../RegisterModal/Form/form.css';
 import {Message} from "../../../../Message";
-import {EyeCrossIcon, EyeIcon, SpinnerIcon} from "../../../../icons";
+import {EyeCrossIcon, EyeIcon} from "../../../../icons";
 import {Button} from "../../../../Button";
 import {useHttp} from "../../../../../hooks/useHttp";
-import {Auth, IUser, RootState, User} from "../../../../../store/rootReducer";
+import {Auth, User} from "../../../../../store/actions";
+import {IUser, RootState} from "../../../../../store/rootState";
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {useAuth} from "../../../../../hooks/useAuth";
@@ -57,6 +58,8 @@ export function Form() {
 	function handlerChange(event: ChangeEvent<HTMLInputElement>) {
 		setForm({ ...form, [event.target.name]: event.target.value });
 	}
+
+	if (error === 'Нет авторизации') history.push('/no-register');
 
 	useEffect(() => {
 		setMessage(error);

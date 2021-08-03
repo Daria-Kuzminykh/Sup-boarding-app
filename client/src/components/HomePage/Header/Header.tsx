@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './header.css';
 import logo from '../../../static/image/logo.webp';
 import {Link} from "react-router-dom";
-import {BurgerIcon, CloseIcon, UserIcon} from "../../icons";
+import {BurgerIcon, CloseIcon} from "../../icons";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../store/rootReducer";
+import {RootState} from "../../../store/rootState";
 import {UserButton} from "./UserButton";
 import {EntryButton} from "./EntryButton";
-import classNames from "classnames";
 
 export function Header() {
 	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);

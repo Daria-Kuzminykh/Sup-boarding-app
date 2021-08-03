@@ -2,21 +2,18 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import styles from './form.css';
 import {Button} from "../../../Button";
 import {useDispatch, useSelector} from "react-redux";
-import {
-	Auth,
-	IRoute,
-	IUser,
-	RootState,
-	Route,
-	RouteChangeAction,
-	RoutesListAction,
-	User
-} from "../../../../store/rootReducer";
+import {Route, RouteChangeAction, User} from "../../../../store/actions";
+import {IRoute, RootState} from '../../../../store/rootState';
 import {useHttp} from "../../../../hooks/useHttp";
 import {useHistory} from "react-router-dom";
 import {Message} from "../../../Message";
-import {SpinnerIcon} from "../../../icons";
 import {Break} from "../../../Break";
+import cover1 from '../../../../static/image/cover-preview-1.webp';
+import cover2 from '../../../../static/image/cover-preview-2.webp';
+import cover3 from '../../../../static/image/cover-preview-3.webp';
+import cover4 from '../../../../static/image/cover-preview-4.webp';
+import cover5 from '../../../../static/image/cover-preview-5.webp';
+import cover6 from '../../../../static/image/cover-preview-6.webp';
 
 export function Form({isNew}: {isNew: boolean}) {
 	const form = isNew && useSelector<RootState, IRoute>(state => state.route) || useSelector<RootState, IRoute>(state => state.routeChange);
@@ -26,6 +23,8 @@ export function Form({isNew}: {isNew: boolean}) {
 	const {request, loading, error, clearError} = useHttp();
 	const [message, setMessage] = useState('');
 	const [success, setSuccess] = useState('');
+
+	if (error === 'Нет авторизации') history.push('/no-register');
 
 	useEffect(() => {
 		setMessage(error);
@@ -50,7 +49,7 @@ export function Form({isNew}: {isNew: boolean}) {
 					Authorization: `Bearer ${token}`
 				});
 				setSuccess(data.message);
-				dispatch(Route({region: 'Красноярский край', place: '', name: '', level: '1', time: '', fotoLink: '', descr: '', plus: '', minus: '', dateEvent: '',}));
+				dispatch(Route({region: 'Красноярский край', place: '', name: '', level: '1', time: '', fotoLink: '', descr: '', plus: '', minus: '', dateEvent: '', coordinatesLink: '', stravaLink: '', coverChoice: '1' }));
 
 				setTimeout(() => {
 					dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
@@ -70,7 +69,7 @@ export function Form({isNew}: {isNew: boolean}) {
 		} catch (e) {}
 	}
   return (
-		<form onSubmit={handlerSubmit} encType="multipart/form-data">
+		<form onSubmit={handlerSubmit} className={styles.form}>
 			<div className={styles.inputBox}>
 				<label htmlFor="name">1. Введите название маршрута*</label>
 				<input
@@ -187,13 +186,76 @@ export function Form({isNew}: {isNew: boolean}) {
 				/>
 			</div>
 
+			<div className={styles.inputBox}>
+				<label htmlFor="coordinatesLink">10. При желании вставьте ссылку на координаты старта маршрута из Google maps</label>
+				<input
+					className={styles.input}
+					value={form.coordinatesLink}
+					id="coordinatesLink"
+					name="coordinatesLink"
+					type="text"
+					placeholder="Ссылка на координаты начала маршрута"
+					onChange={handlerChange}
+				/>
+			</div>
+
+			<div className={styles.inputBox}>
+				<label htmlFor="stravaLink">11. Если вы пользуетесь Strava, то можете вставить ссылку на GPS-трек маршрута</label>
+				<input
+					className={styles.input}
+					value={form.stravaLink}
+					id="stravaLink"
+					name="stravaLink"
+					type="text"
+					placeholder="Ссылка на GPS-трек"
+					onChange={handlerChange}
+				/>
+			</div>
+
+			<div className={styles.inputBox}>
+				<label htmlFor="coverChoice">12. Выберите картинку для обложки карточки маршрута</label>
+				<ul className={styles.coverList}>
+					<li className={styles.coverItem}>
+						<img className={styles.coverFoto} src={cover1} alt="обложка карточки маршрута"/>
+						<p className={styles.coverText}>1. Тихая запруда</p>
+					</li>
+					<li className={styles.coverItem}>
+						<img className={styles.coverFoto} src={cover2} alt="обложка карточки маршрута"/>
+						<p className={styles.coverText}>2. Залив Бирюса</p>
+					</li>
+					<li className={styles.coverItem}>
+						<img className={styles.coverFoto} src={cover3} alt="обложка карточки маршрута"/>
+						<p className={styles.coverText}>3. Протока Татышева</p>
+					</li>
+					<li className={styles.coverItem}>
+						<img className={styles.coverFoto} src={cover4} alt="обложка карточки маршрута"/>
+						<p className={styles.coverText}>4. Река Енисей</p>
+					</li>
+					<li className={styles.coverItem}>
+						<img className={styles.coverFoto} src={cover5} alt="обложка карточки маршрута"/>
+						<p className={styles.coverText}>5. Красноярское море</p>
+					</li>
+					<li className={styles.coverItem}>
+						<img className={styles.coverFoto} src={cover6} alt="обложка карточки маршрута"/>
+						<p className={styles.coverText}>6. Красноярское море</p>
+					</li>
+				</ul>
+				<select className={styles.select} name="coverChoice" id="coverChoice" value={form.coverChoice} onChange={handlerChange}>
+					<option value={1}>Картинка 1</option>
+					<option value={2}>Картинка 2</option>
+					<option value={3}>Картинка 3</option>
+					<option value={4}>Картинка 4</option>
+					<option value={5}>Картинка 5</option>
+					<option value={6}>Картинка 6</option>
+				</select>
+			</div>
+
 			<Break size={20}  mobileSize={10}/>
 
 			{error && <Message message={message} isError={true} /> || success && <Message message={success} isError={false} />}
 
 			<div className={styles.button}>
-				<Button text="Сохранить" loading={loading}/>
-			</div>
+				<Button text="Сохранить" loading={loading}/>			</div>
 		</form>
   );
 }

@@ -14,8 +14,8 @@ router.get('/:id', async (req, res) => {
 
 router.patch('/', auth, async (req, res) => {
 	try {
-		const {region, place, name, level, time, fotoLink, descr, plus, minus, _id} = req.body;
-		await Route.findByIdAndUpdate(_id, {region, place, name, level, time, fotoLink, descr, plus, minus}, {
+		const {region, place, name, level, time, fotoLink, descr, plus, minus, _id, stravaLink, coordinatesLink, coverChoice} = req.body;
+		await Route.findByIdAndUpdate(_id, {region, place, name, level, time, fotoLink, descr, plus, minus, stravaLink, coordinatesLink, coverChoice}, {
 			useFindAndModify: false,
 		});
 

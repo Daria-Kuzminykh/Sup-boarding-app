@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './eventform.css';
 import {ModalTitle} from "../../Modal/ModalTitle";
 import {Modal} from "../../Modal";
 import {Form} from "./Form";

@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import { useHistory } from 'react-router-dom';
+import {useAnimation} from "./useAnimation";
 
 export function useEventClick(path: string) {
 	const ref = useRef<HTMLDivElement>(null);
@@ -8,7 +9,12 @@ export function useEventClick(path: string) {
 	useEffect(() => {
 		function handleClick(event: MouseEvent) {
 			if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-				history.push(path);
+
+				useAnimation();
+
+				setTimeout(() => {
+					history.push(path);
+				}, 200);
 			}
 		}
 		document.addEventListener('click', handleClick)

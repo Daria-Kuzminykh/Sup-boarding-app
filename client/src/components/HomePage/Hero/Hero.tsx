@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './hero.css';
 import logo from '../../../static/image/hero-logo.webp';
-import logoMobile from '../../../static/image/hero-logo-mobile.webp';
 import logoMobile2 from '../../../static/image/hero-logo-mobile-2.png';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {Button} from "../../Button";
 
 export function Hero() {

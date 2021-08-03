@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styles from '../../SupRoutesPage/Detail/detail.css';
-import {useLocation} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import {useHttp} from "../../../hooks/useHttp";
 import {Spinner} from "../../Spinner";
 import {Message} from "../../Message";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../store/rootReducer";
+import {RootState} from "../../../store/rootState";
 import {Break} from "../../Break";
 
 interface IEventDetail {
@@ -20,6 +20,7 @@ interface IEventDetail {
 export function Detail() {
 	const token = useSelector<RootState>(state => state.auth.token);
 	const location = useLocation();
+	const history = useHistory();
 	const {request, loading, error, clearError} = useHttp();
 	const [data, setData] = useState<IEventDetail>({ contacts: '', contactTel: '', place: '', name: '',  descr: '',  clicks: 0 });
 
@@ -37,7 +38,7 @@ export function Detail() {
 
 	if (loading) return (<div className={styles.content}><Spinner /></div>);
 
-	if (error) return (<Message message={error} isError={true} />);
+	if (error === 'Нет авторизации') history.push('/no-register');
 
 	return (
 		<div className={styles.content}>

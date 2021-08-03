@@ -6,6 +6,7 @@ const Event = require('../models/Event');
 router.get('/:id', auth, async (req, res) => {
 	try {
 		const event = await Event.findById(req.params.id);
+		if (!event) return res.status(404).json({ message: 'Данное событие не найдено((' });
 		event.clicks++;
 		await event.save();
 		res.json(event);

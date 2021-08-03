@@ -24,14 +24,18 @@
 	font-size: 16px;
 	font-weight: 600;
 }
-.text, .foto, .date {
+.text, .date {
 	margin-bottom: 25px;
+}
+.foto {
+	margin-bottom: 15px;
 }
 .text {
 	line-height: 32px;
 }
 .link {
 	color: var(--blueMain);
+	line-height: 26px;
 }
 .link:hover {
 	text-decoration: underline;

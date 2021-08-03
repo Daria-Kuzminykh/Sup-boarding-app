@@ -1,5 +1,4 @@
-import React, {FormEvent, useState} from 'react';
-import styles from './registermodal.css';
+import React from 'react';
 import {Modal} from "../Modal";
 import {ModalTitle} from "../Modal/ModalTitle";
 import {Form} from "./Form";

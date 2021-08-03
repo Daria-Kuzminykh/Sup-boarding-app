@@ -20,6 +20,8 @@ router.get('/:id', auth, async (req, res) => {
 				time: route.time,
 				ownerFullName: route.ownerFullName,
 				id: route._id,
+				coverChoice: route.coverChoice,
+				cover: route.cover || '',
 			}
 		});
 
@@ -61,7 +63,7 @@ router.post('/route-form',
 			})
 		}
 
-		const {region, place, name, level, time, fotoLink, descr, plus, minus } = req.body;
+		const {region, place, name, level, time, fotoLink, descr, plus, minus, stravaLink, coordinatesLink, coverChoice } = req.body;
 
 		const nowDate = new Date();
 		const year = nowDate.getFullYear();
@@ -76,7 +78,7 @@ router.post('/route-form',
 		const owner = await User.findById(req.user.userId);
 		const fullName = `${owner.name} ${owner.surname}`;
 
-		const route = new Route({ region, place, name, level, time, fotoLink, descr, plus, minus, clicks: 0, owner: req.user.userId, date, ownerFullName: fullName });
+		const route = new Route({ region, place, name, level, time, fotoLink, descr, plus, minus, stravaLink, coordinatesLink, coverChoice, clicks: 0, owner: req.user.userId, date, ownerFullName: fullName });
 		await route.save();
 
 		res.status(201).json({ message: 'Маршрут успешно создан' });

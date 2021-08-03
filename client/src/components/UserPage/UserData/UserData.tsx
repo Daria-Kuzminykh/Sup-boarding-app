@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './userdata.css';
 import {useSelector} from "react-redux";
-import {IUser, RootState} from "../../../store/rootReducer";
+import {IUser, RootState} from "../../../store/rootState";
 import {useHistory} from "react-router-dom";
 
 export function UserData() {

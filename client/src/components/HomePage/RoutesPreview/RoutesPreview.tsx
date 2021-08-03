@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './routespreview.css';
 import {Title} from "../../Title";
 import {Button} from "../../Button";
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {RoutesList} from "../../SupRoutesPage/RoutesList";
 import {RouteCard} from "../../SupRoutesPage/RouteCard";
 
@@ -29,6 +29,7 @@ export function RoutesPreview() {
 							owner="Дарья Кузьминых"
 							img="../../../../static/image/route-1.webp"
 							id="60d96b627dc4c3674082be86"
+							coverNumber={1}
 						/>
 						<RouteCard
 							name="Царские ворота"
@@ -38,6 +39,7 @@ export function RoutesPreview() {
 							owner="Дарья Кузьминых"
 							img="../../../../static/image/route-2.webp"
 							id="60d96b867dc4c3674082be8c"
+							coverNumber={1}
 						/>
 						<RouteCard
 							name="Вдоль берегов острова"
@@ -47,6 +49,7 @@ export function RoutesPreview() {
 							owner="Дарья Кузьминых"
 							img="../../../../static/image/route-3.webp"
 							id="60d96ba87dc4c3674082be92"
+							coverNumber={1}
 						/>
 					</>
 				}/>

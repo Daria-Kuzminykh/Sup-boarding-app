@@ -3,14 +3,14 @@ import styles from './detail.css';
 import {useLocation} from "react-router-dom";
 import {useHttp} from "../../../hooks/useHttp";
 import {Spinner} from "../../Spinner";
-import {IRoute} from "../../../store/rootReducer";
+import {IRoute} from "../../../store/rootState";
 import {Message} from "../../Message";
 import {Break} from "../../Break";
 
 export function Detail() {
 	const location = useLocation();
 	const {request, loading, error, clearError} = useHttp();
-	const [data, setData] = useState<IRoute>({region: '', place: '', name: '', level: '', time: '', fotoLink: '', descr: '', plus: '', minus: '', clicks: 0, date: '' });
+	const [data, setData] = useState<IRoute>({region: '', place: '', name: '', level: '', time: '', fotoLink: '', descr: '', plus: '', minus: '', clicks: 0, date: '', stravaLink: '', coordinatesLink: '' });
 
 	async function loadingData() {
 		clearError();
@@ -49,6 +49,10 @@ export function Detail() {
 			<p className={styles.text}>{data.minus || 'Не указаны'}</p>
 
 			{data.fotoLink && <p className={styles.foto}><a className={styles.link} target="_blank" href={data.fotoLink}>Посмотреть фотографии</a></p>}
+			{data.coordinatesLink && <p className={styles.foto}><a className={styles.link} target="_blank" href={data.coordinatesLink}>Посмотреть координаты начала маршрута на Google карте</a></p>}
+			{data.stravaLink && <p className={styles.foto}><a className={styles.link} target="_blank" href={data.stravaLink}>Посмотреть GPS-трек в Strava</a></p>}
+
+			<Break size={20} mobileSize={10} />
 
 			<p className={styles.date}>
 				<span>Дата создания записи: </span>

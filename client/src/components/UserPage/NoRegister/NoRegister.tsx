@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './noregister.css';
 import {Break} from "../../Break";
 import {Button} from "../../Button";
-import {Auth} from "../../../store/rootReducer";
+import {Auth} from "../../../store/actions";
 import {storageName} from "../../../hooks/useAuth";
 import {useDispatch} from "react-redux";
 import {useHistory} from "react-router-dom";

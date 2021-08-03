@@ -5,9 +5,12 @@ import figure1 from '../../../static/image/figure-1.webp';
 import figure2 from '../../../static/image/figure-2.webp';
 import {Title} from "../../Title";
 import {Link, useHistory} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../store/rootState";
 
 export function About() {
 	const history = useHistory();
+	const isAuth = useSelector<RootState>(state => state.auth.isAuthenticated);
 
 	function handlerClick() {
 		history.push('/routes');
@@ -40,7 +43,8 @@ export function About() {
 						<strong>Приглашаем вас присоединяйться к нашей веселой компании!</strong>
 					</p>
 					<p className={styles.text}>
-						Здесь вы можете просматривать маршруты, пройденные другими путешественниками, а также создавать свои. Чтобы создать маршрут, необходимо пройти несложную <Link to="/home/auth/register">процедуру регистрации</Link> и заполнить всю подробную информацию о маршруте.
+						Здесь вы можете просматривать маршруты, пройденные другими путешественниками, а также создавать свои. Чтобы создать маршрут, необходимо пройти несложную
+						{ isAuth ? ' процедуру регистрации' : <Link to="/home/auth/register"> процедуру регистрации</Link> } и заполнить всю подробную информацию о маршруте.
 						Зарегистрированные пользователи могут также просматривать и добавлять <a href="#events">события</a>.
 					</p>
 					<img className={styles.figure1} src={figure1} alt="фото"/>

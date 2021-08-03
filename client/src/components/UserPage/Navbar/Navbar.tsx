@@ -5,7 +5,7 @@ import logo from './../../../static/image/logo.webp';
 import {Link, useHistory} from 'react-router-dom';
 import {EntryButton} from "../../HomePage/Header/EntryButton";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../store/rootReducer";
+import {RootState} from "../../../store/rootState";
 import {BurgerIcon, CloseIcon} from "../../icons";
 
 export function Navbar() {

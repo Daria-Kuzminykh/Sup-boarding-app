@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {HomePage} from "./components/HomePage";
 import {UserPage} from "./components/UserPage";
@@ -6,7 +6,7 @@ import {SupRoutesPage} from "./components/SupRoutesPage";
 import {RegisterModal} from "./components/RegisterModal";
 import {LoginModal} from "./components/LoginModal";
 import {useSelector} from "react-redux";
-import {RootState} from "./store/rootReducer";
+import {RootState} from "./store/rootState";
 import {EventsPage} from "./components/EventsPage";
 import {RouteForm} from "./components/SupRoutesPage/RouteForm";
 import {EventForm} from "./components/EventsPage/EventForm";
@@ -19,7 +19,7 @@ import {RouteChangeForm} from "./components/SupRoutesPage/RouteChangeForm";
 import {EventChangeForm} from "./components/EventsPage/EventChangeForm";
 import {SurfDayModal} from "./components/HomePage/EventsPreview/SurfDayModal";
 import {SupDayModal} from "./components/HomePage/EventsPreview/SupDayModal";
-import {CoverModal} from "./components/SupRoutesPage/CoverModal";
+import {NoRegister} from "./components/UserPage/NoRegister";
 
 export function Routes() {
 	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
@@ -31,9 +31,6 @@ export function Routes() {
           <UserPage />
 					<Route path="/user/route-form">
 						<RouteForm />
-					</Route>
-					<Route path="/user/route-cover">
-						<CoverModal />
 					</Route>
 					<Route path="/user/event-form">
 						<EventForm />
@@ -89,6 +86,9 @@ export function Routes() {
 					<Route path="/home/event/sup-boarding-day">
 						<SupDayModal />
 					</Route>
+				</Route>
+				<Route path="/no-register">
+					<NoRegister />
 				</Route>
         <Redirect to="/home"/>
       </Switch>

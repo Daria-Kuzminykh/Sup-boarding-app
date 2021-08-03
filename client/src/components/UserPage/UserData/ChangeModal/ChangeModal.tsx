@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './changemodal.css';
 import {Modal} from "../../../Modal";
 import {ModalTitle} from "../../../Modal/ModalTitle";
 import {Form} from "./Form";

@@ -69,9 +69,9 @@
 
 @media (max-width: 600px) {
 	.container {
-		padding-top: 170px;
-		min-height: 640px;
-		background-image: url("../../../static/image/hero-fon-mobile.webp");
+		padding-top: 150px;
+		min-height: 600px;
+		background-image: url("../../../static/image/hero-fon-600.webp");
 		background-size: cover;
 	}
 	.logo {
@@ -99,5 +99,20 @@
 	}
 	.button {
 		width: 287px;
+	}
+}
+
+@media (max-width: 460px) {
+	.container {
+		padding-top: 150px;
+		min-height: 588px;
+		background-image: url("../../../static/image/fon-mobile-new.webp");
+	}
+}
+
+@media (max-width: 400px) {
+	.container {
+		padding-top: 140px;
+		min-height: 518px;
 	}
 }

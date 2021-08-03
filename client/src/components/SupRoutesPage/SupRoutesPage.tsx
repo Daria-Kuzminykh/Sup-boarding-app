@@ -4,9 +4,9 @@ import {Navbar} from "../UserPage/Navbar";
 import {Title} from "../Title";
 import {useHttp} from "../../hooks/useHttp";
 import {RouteCard} from "./RouteCard";
-import {IRoutePreview, RootState} from '../../store/rootReducer';
+import {IRoutePreview, RootState} from '../../store/rootState';
 import {useDispatch, useSelector} from "react-redux";
-import {RoutesListAction} from "../../store/rootReducer";
+import {RoutesListAction} from "../../store/actions";
 import {RoutesList} from "./RoutesList";
 import {krasnoyarsk, RegionMenu} from "./RegionMenu";
 import {Spinner} from "../Spinner";
@@ -60,6 +60,7 @@ export function SupRoutesPage() {
 										owner={route.ownerFullName}
 										img={route.cover || ''}
 										id={route.id}
+										coverNumber={route.coverChoice}
 									/>
 								</li>
 							)

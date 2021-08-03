@@ -3,15 +3,13 @@ const config = require('config');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const fileUpload = require('express-fileupload');
 
 const app = express();
-const PORT = config.get('port') || 5000;
+const PORT = process.env.PORT || config.get('port') || 5000;
 
 app.use(cors());
 
 app.use(express.json({ extended: true }));
-app.use(fileUpload());
 
 app.use('/auth', require('./routes/auth.routes'));
 app.use('/user', require('./routes/user.routes'));
@@ -20,7 +18,6 @@ app.use('/events', require('./routes/events.routes'));
 app.use('/detail-route', require('./routes/supRoutesDetail'));
 app.use('/detail-event', require('./routes/eventsDetail.routes'));
 app.use('/change-route', require('./routes/supRoutesChange'));
-app.use('/upload', require('./routes/card-cover.routes'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, 'client', 'dist')));

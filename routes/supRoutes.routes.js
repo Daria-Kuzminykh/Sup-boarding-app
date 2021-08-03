@@ -14,6 +14,8 @@ router.get('/:region', async (req, res) => {
 				time: route.time,
 				ownerFullName: route.ownerFullName,
 				id: route._id,
+				coverChoice: route.coverChoice,
+				cover: route.cover || '',
 			}
 		});
 		res.json(routesPreview);

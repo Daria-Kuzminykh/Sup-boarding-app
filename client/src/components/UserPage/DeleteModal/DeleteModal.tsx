@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import styles from './deletemodal.css';
+import React, {useEffect, useState} from "react";
+import styles from "./deletemodal.css";
 import {Button} from "../../Button";
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 import {Modal} from "../../Modal";
 import {useDispatch, useSelector} from "react-redux";
-import {EventsListAction, IDeleteElement, RootState, RoutesListAction, User} from "../../../store/rootReducer";
+import {User} from "../../../store/actions";
 import {useHttp} from "../../../hooks/useHttp";
 import {Message} from "../../Message";
-import {SpinnerIcon} from "../../icons";
+import {useAnimation} from "../../../hooks/useAnimation";
+import {IDeleteElement, RootState} from "../../../store/rootState";
 
 export function DeleteModal() {
 	const history = useHistory();
@@ -37,11 +38,21 @@ export function DeleteModal() {
 		} catch (e) {}
 	}
 
+	function handlerClickLink() {
+		useAnimation();
+
+		setTimeout(() => {
+			history.push('/user');
+		}, 200);
+	}
+
+	if (error === 'Нет авторизации') history.push('/no-register');
+
 	useEffect(() => {
 		setMessage(error);
 	}, [error]);
 
-  return (
+	return (
 		<Modal path="/user" children={
 			<div className={styles.content}>
 				<p className={styles.text}>Вы уверены, что хотите удалить?</p>
@@ -52,8 +63,8 @@ export function DeleteModal() {
 					<Button text="Удалить" loading={loading}/>
 				</div>
 
-				<Link to="/user">Отмена</Link>
+				<a onClick={handlerClickLink}>Отмена</a>
 			</div>
 		} />
-  )
+	)
 }

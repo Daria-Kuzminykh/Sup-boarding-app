@@ -5,9 +5,10 @@ import {BrowserRouter} from "react-router-dom";
 import {createStore, applyMiddleware} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import {Auth, rootReducer} from '../store/rootReducer';
+import {rootReducer} from '../store/rootReducer';
 import {Provider} from "react-redux";
 import {storageName, useAuth} from "../hooks/useAuth";
+import {Auth} from "../store/actions";
 
 const store = createStore(rootReducer, composeWithDevTools(
 	applyMiddleware(thunk),
@@ -26,7 +27,7 @@ export function App() {
 			const data = JSON.parse(item);
 			store.dispatch(Auth({ token: data.token, userId: data.userId, isAuthenticated: true, loginName: data.loginName }));
 		}
-	}, [])
+	}, []);
 
   return (
     <Provider store={store}>
@@ -34,6 +35,6 @@ export function App() {
 				<Routes />
 			</BrowserRouter>
 		</Provider>
-  )
+  );
 }
 

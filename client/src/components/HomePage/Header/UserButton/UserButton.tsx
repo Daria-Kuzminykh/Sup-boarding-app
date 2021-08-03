@@ -2,9 +2,6 @@ import React from 'react';
 import styles from './userbutton.css';
 import {UserIcon} from "../../../icons";
 import {Link, useHistory} from "react-router-dom";
-import {useAuth} from "../../../../hooks/useAuth";
-import {useDispatch, useSelector} from "react-redux";
-import {Auth, RootState, User} from "../../../../store/rootReducer";
 
 export function UserButton({ userName }: {userName: string}) {
 	const history = useHistory();
