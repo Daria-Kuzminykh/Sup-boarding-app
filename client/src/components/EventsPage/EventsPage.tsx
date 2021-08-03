@@ -68,7 +68,9 @@ export function EventsPage() {
 					}/>}
 				</div>
 			</div>
-			<Footer />
+			<div className={styles.footer}>
+				<Footer />
+			</div>
 		</div>
   );
 }
