@@ -58,7 +58,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HTMLWebpackPlugin({ template: path.resolve(__dirname, 'index.html') }),
+    new HTMLWebpackPlugin({ template: path.resolve(__dirname, 'index.html'), inject: false }),
     new CopyPlugin({
       patterns: [
         { from: path.resolve(__dirname, 'src/static/image'), to: path.resolve(__dirname, 'dist/static/image') },
