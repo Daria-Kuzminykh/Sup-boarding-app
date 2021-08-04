@@ -99,3 +99,9 @@
 		right: 15px;
 	}
 }
+
+@media (max-width: 660px) {
+	.modalPosition {
+		width: calc(100% - 30px);
+	}
+}

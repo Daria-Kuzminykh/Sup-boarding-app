@@ -11,6 +11,7 @@
 .text {
 	padding: 30px 0;
 	text-align: center;
+	line-height: 26px;
 }
 .content a {
 	color: var(--blueMain);

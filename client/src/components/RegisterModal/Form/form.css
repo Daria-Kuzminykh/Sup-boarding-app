@@ -63,15 +63,14 @@
 @media (max-width: 1023px) {
 	.inputBox {
 		margin-bottom: 20px;
-		max-width: 305px;
 	}
 	.input {
 		font-size: 16px;
 	}
 }
 
-@media (max-width: 370px) {
+@media (max-width: 660px) {
 	.inputBox {
-		max-width: 250px;
+		width: 100%;
 	}
 }

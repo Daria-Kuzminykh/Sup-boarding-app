@@ -56,7 +56,7 @@ export function Form({isNew}: {isNew: boolean}) {
 		} catch (e) {}
 	}
 	return (
-		<form onSubmit={handlerSubmit}>
+		<form className={styles.form} onSubmit={handlerSubmit}>
 			<div className={styles.inputBox}>
 				<label htmlFor="name">1. Введите название события*</label>
 				<input

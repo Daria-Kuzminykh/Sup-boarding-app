@@ -1,3 +1,6 @@
+.form {
+	width: 500px;
+}
 .select {
 	padding: 10px 20px;
 	font-family: 'Gotham Pro', sans-serif;
@@ -43,15 +46,21 @@
 @media (max-width: 1023px) {
 	.inputBox {
 		margin-bottom: 20px;
-		width: 305px;
+		/*width: 305px;*/
 	}
 	.inputBox label {
 		line-height: 32px;
 	}
 }
 
-@media (max-width: 370px) {
-	.inputBox {
-		width: 250px;
+@media (max-width: 660px) {
+	.form {
+		width: 100%;
 	}
 }
+
+/*@media (max-width: 370px) {*/
+/*	.inputBox {*/
+/*		width: 250px;*/
+/*	}*/
+/*}*/
