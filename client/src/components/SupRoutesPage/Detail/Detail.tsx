@@ -30,6 +30,7 @@ export function Detail() {
   return (
 		<div className={styles.content}>
 			<p className={styles.name}>{data.name}</p>
+			<div className={styles.separator}/>
 			<p className={styles.region}>
 				<span>Регион: </span>
 				{data.region}

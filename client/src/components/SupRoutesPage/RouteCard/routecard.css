@@ -100,7 +100,7 @@
 	border-left: 2px solid var(--white);
 	transform: translateX(-50%) rotate(-135deg);
 }
-.overflow a {
+.link {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -144,19 +144,21 @@
 	text-overflow: ellipsis;
 }
 
-@media (max-width: 1023px) {
-	.card {
-		margin: 0 0 40px;
-	}
-	.time {
-		margin-bottom: 15px;
-	}
+@media (max-width: 1024px) {
 	.more {
 		display: block;
 		color: var(--blueMain);
 		text-decoration: underline;
 	}
+	.time {
+		margin-bottom: 15px;
+	}
+}
 
+@media (max-width: 1023px) {
+	.card {
+		margin: 0 0 40px;
+	}
 }
 
 @media (max-width: 370px) {

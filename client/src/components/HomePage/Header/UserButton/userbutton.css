@@ -1,12 +1,32 @@
 .entry {
-	display: flex;
-	align-items: center;
 	position: relative;
 	cursor: pointer;
 }
 .entry span {
 	margin-right: 15px;
 	color: var(--white);
+}
+
+.userSpan {
+	display: flex;
+	align-items: center;
+}
+
+.userSpan span {
+	transition: color .2s ease-in-out;
+}
+.userSpan svg {
+	transition: fill .2s ease-in-out;
+}
+
+.userSpan:hover span {
+	color: var(--blueDark97);
+}
+.userSpan:hover svg {
+	fill: var(--blueDark97);
+}
+.userSpan:focus {
+	outline: 1px solid var(--white);
 }
 
 .action {
@@ -18,9 +38,8 @@
 	background-color: var(--white);
 	border-radius: 10px;
 	transition: all .3s ease-in-out;
-	opacity: 0;
-	transform: scaleY(0.0001);
-	transform-origin: top;
+	opacity: 1;
+	z-index: 5;
 }
 .action a {
 	display: block;
@@ -28,15 +47,14 @@
 	color: var(--gray99);
 }
 
-.entry:hover .action {
-	opacity: 1;
-	transform: none;
-}
 .action a:hover {
 	background-color: var(--grayE5);
 }
 .button:hover {
 	background-color: var(--grayE5);
+}
+.button:focus {
+	outline: 1px solid var(--blueDark97);
 }
 .button {
 	padding: 10px 0;
@@ -50,5 +68,11 @@
 	}
 	.action {
 		width: 180px;
+	}
+}
+
+@media (max-width: 700px) {
+	.action {
+		box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.1);
 	}
 }

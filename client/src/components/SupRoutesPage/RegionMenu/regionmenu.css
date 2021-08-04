@@ -18,6 +18,11 @@
 	background-color: var(--blueMainD6);
 	border-color: var(--blueMainD6);
 }
+.button:focus {
+	color: var(--white);
+	background-color: var(--blueMainD6);
+	border-color: var(--blueDark97);
+}
 
 @media (max-width: 1300px) {
 	.button {

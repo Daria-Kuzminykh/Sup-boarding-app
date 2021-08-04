@@ -27,7 +27,7 @@ export function RouteCard({ name, id, level, owner, place, time, img, coverNumbe
   return (
 		<div className={styles.card}>
 			<div className={styles.overflow}>
-				<Link to={location => `${location.pathname}/routes/${id}`}></Link>
+				<Link className={styles.link} to={location => `${location.pathname}/routes/${id}`}></Link>
 				<div className={styles.detailButton}>Подробнее</div>
 			</div>
 			<div className={styles.plug}/>

@@ -6,7 +6,7 @@ import {Break} from "../Break";
 
 export function RegisterModal() {
   return (
-  	<Modal path="/" children={
+  	<Modal path="/home" children={
   		<>
 				<ModalTitle text="Регистрация" />
 				<Break size={30} mobileSize={20}/>

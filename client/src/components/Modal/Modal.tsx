@@ -10,9 +10,7 @@ export function Modal({children, path}: {children: React.ReactNode, path: string
 	const history = useHistory();
 	const ref = useEventClick(path)
 
-	const position = {
-		top: `${window.scrollY + 100}px`,
-	}
+	const position = window.innerWidth > 700 ? { top: `${window.scrollY + 100}px` } : { top: `${window.scrollY + 50}px` }
 
 	function handlerClick() {
 		useAnimation();

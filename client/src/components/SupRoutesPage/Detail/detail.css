@@ -1,8 +1,13 @@
+.content {
+	width: 600px;
+}
 .name {
-	margin-bottom: 30px;
-	font-size: 20px;
-	font-weight: 600;
+	margin-bottom: 23px;
+	font-size: 26px;
+	font-weight: 500;
 	line-height: 32px;
+	color: var(--blueDark72);
+	animation: textAnimate .5s ease-in-out;
 }
 .region span,
 .place span,
@@ -14,24 +19,29 @@
 .region,
 .place {
 	line-height: 32px;
+	animation: textAnimate .5s ease-in-out;
 }
 .place {
 	margin-bottom: 25px;
 }
 
 .smallTitle {
-	margin: 0 0 15px;
+	margin: 0 0 10px;
 	font-size: 16px;
 	font-weight: 600;
+	line-height: 26px;
+	animation: textOpacity .5s ease-in-out;
 }
-.text, .date {
+.date {
 	margin-bottom: 25px;
 }
 .foto {
 	margin-bottom: 15px;
 }
 .text {
+	margin-bottom: 25px;
 	line-height: 32px;
+	animation: textOpacity .5s ease-in-out;
 }
 .link {
 	color: var(--blueMain);
@@ -48,12 +58,69 @@
 	color: var(--grayCC);
 }
 
+.separator {
+	margin-bottom: 23px;
+	margin-left: 2px;
+	width: 80px;
+	height: 1.5px;
+	background-color: var(--blueDark72);
+}
+
+@keyframes textAnimate {
+	from {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+@keyframes textOpacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 @media (max-width: 1023px) {
+	.name, .separator {
+		margin-bottom: 15px;
+	}
 	.name {
-		margin-bottom: 20px;
+		font-size: 22px;
+	}
+	.separator {
+		width: 70px;
 	}
 	.date {
 		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 700px) {
+	.content {
+		width: 450px;
+	}
+	.name {
+		font-size: 20px;
+	}
+	.text {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 530px) {
+	.content {
+		width: 350px;
+	}
+}
+
+@media (max-width: 430px) {
+	.content {
+		width: 300px;
 	}
 }
 
@@ -61,5 +128,8 @@
 	.date span {
 		display: block;
 		margin-bottom: 10px;
+	}
+	.content {
+		width: 250px;
 	}
 }

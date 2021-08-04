@@ -42,15 +42,15 @@ export function Navbar() {
 					</nav>
 
 					{!isAuthenticated && (
-						<Link to="/home/auth/login">
+						<Link className={styles.linkAuth} to="/home/auth/login">
 							<EntryButton text="Войти" />
 						</Link>
 					)}
 
 					{isAuthenticated && (
-						<div onClick={() => {history.push('/home/auth/logout')}}>
+						<Link className={styles.linkAuth} to="/home/auth/logout">
 							<EntryButton text="Выйти"/>
-						</div>
+						</Link>
 					)}
 				</div>
 			</div>

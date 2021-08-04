@@ -20,7 +20,7 @@ export function LogoutModal() {
 			logout();
 			dispatch(Auth({ token: '', userId: '', isAuthenticated: false, loginName: '' }));
 			dispatch(User({ name: '', surname: '', supRoutes: [], events: [], }));
-			history.push('/');
+			history.push('/home');
 		}, 200)
 	}
 
@@ -28,12 +28,12 @@ export function LogoutModal() {
 		useAnimation();
 
 		setTimeout(() => {
-			history.push('/');
+			history.push('/home');
 		}, 200);
 	}
 
   return (
-		<Modal path="/" children={
+		<Modal path="/home" children={
 			<div className={styles.content}>
 				<p className={styles.text}>Вы уверены, что хотите выйти из личного профиля?</p>
 				<div className={styles.button} onClick={handlerClick}>

@@ -12,7 +12,7 @@ export const khakassia = 'Республика Хакасия';
 export const otherRegion = 'Другой регион';
 
 export function RegionMenu() {
-	const {loading, error, clearError, request} = useHttp();
+	const {error, clearError, request} = useHttp();
 	const dispatch = useDispatch();
 	const regionTab = useSelector<RootState, IRegionTab>(state => state.regionTab);
 	styles.button1 = styles.button2 = styles.button3 = styles.button4 = styles.button5 = styles.button6 = styles.button;
@@ -41,6 +41,9 @@ export function RegionMenu() {
 			dispatch(chooseRegionTab({ name: region, loading: false }));
 		} catch (e) {}
 	}
+
+	if (error) return <div className={styles.error}>Что-то пошло не так...Попробуйте зайти позже.</div>
+
   return (
 		<ul className={styles.list}>
 			<li className={styles.item}>

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import styles from './homepage.css';
 import {Hero} from "./Hero";
 import {Header} from "./Header";
 import {About} from "./About";
@@ -41,7 +40,6 @@ export function HomePage() {
 				{scroll > 200 && (
 					<UpButton />
 				)}
-				{/*<UpButton />*/}
 			</main>
     </div>
   );

@@ -24,6 +24,9 @@
 	top: 25px;
 	right: 25px;
 }
+.closeButton:focus {
+	outline: 1px solid var(--blueDark97);
+}
 
 .modalPosition {
 	position: absolute;

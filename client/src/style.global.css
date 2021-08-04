@@ -7,6 +7,14 @@
   font-style: normal;
 }
 @font-face {
+	font-family: 'Gotham Pro';
+	src: url('static/fonts/GothamPro-Medium.woff2') format('woff2'),
+	url('static/fonts/GothamPro-Medium.woff') format('woff');
+	font-display: swap;
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
   font-family: 'Gotham Pro';
   src: url('static/fonts/GothamPro-Bold.woff2') format('woff2'),
       url('static/fonts/GothamPro-Bold.woff') format('woff');
@@ -112,6 +120,7 @@ textarea:focus {
 	--blutLight: #daf4f9;
 	--blueDark: #2283a5;
 	--blueDark97: #095097;
+	--blueDark72: #094582;
 	--black: #333;
 	--gray99: #999;
 	--grayE5: #e5e5e5;

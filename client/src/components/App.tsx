@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import 'normalize.css';
 import '../style.global.css';
 import {Routes} from "../routes";
 import {BrowserRouter} from "react-router-dom";

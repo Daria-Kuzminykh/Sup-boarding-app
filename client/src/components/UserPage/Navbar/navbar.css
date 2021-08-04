@@ -24,6 +24,10 @@
 	color: var(--blueDark97);
 }
 
+.linkAuth:focus {
+	outline: 1px solid var(--white);
+}
+
 @media (max-width: 1300px) {
 	.list {
 		flex-direction: column;

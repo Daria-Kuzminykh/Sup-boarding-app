@@ -15,7 +15,7 @@ export function Hero() {
   return (
 		<section className={styles.container}>
 			<div className="container">
-				<h1 className={styles.visuallyHidden}>Sup boarding в Сибири</h1>
+				<h1 className={styles.visuallyHidden}>Сап бординг в Сибири</h1>
 				<img src={logo} alt="логотип проекта" className={styles.logo}/>
 				<img src={logoMobile2} alt="логотип проекта" className={styles.logoMobile}/>
 				<p className={styles.text}>Сборник маршрутов по озерам, рекам Сибири и других регионов от любителей путешествий на sup-доске.</p>

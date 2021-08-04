@@ -27,6 +27,10 @@
 	background-color: var(--blueMain);
 }
 
+.button:focus {
+	z-index: 7;
+}
+
 @media (max-width: 760px) {
 	.button {
 		bottom: 15px;

@@ -27,8 +27,8 @@ export function RoutesPreview() {
 							level={3}
 							time={5}
 							owner="Дарья Кузьминых"
-							img="../../../../static/image/route-1.webp"
-							id="60d96b627dc4c3674082be86"
+							img="../../../../static/image/routes/route-1.webp"
+							id="61094a90debec519fc739723"
 							coverNumber={1}
 						/>
 						<RouteCard
@@ -37,8 +37,8 @@ export function RoutesPreview() {
 							level={4}
 							time={10}
 							owner="Дарья Кузьминых"
-							img="../../../../static/image/route-2.webp"
-							id="60d96b867dc4c3674082be8c"
+							img="../../../../static/image/routes/route-2.webp"
+							id="61094aaddebec519fc739729"
 							coverNumber={1}
 						/>
 						<RouteCard
@@ -47,8 +47,8 @@ export function RoutesPreview() {
 							level={2}
 							time={2}
 							owner="Дарья Кузьминых"
-							img="../../../../static/image/route-3.webp"
-							id="60d96ba87dc4c3674082be92"
+							img="../../../../static/image/routes/route-3.webp"
+							id="61094ac8debec519fc73972f"
 							coverNumber={1}
 						/>
 					</>

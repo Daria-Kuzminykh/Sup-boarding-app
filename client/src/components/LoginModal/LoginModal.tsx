@@ -15,7 +15,7 @@ export function LoginModal() {
 	}
 
   return (
-		<Modal path="/" children={
+		<Modal path="/home" children={
 			<>
 				<ModalTitle text="Личный кабинет" />
 				<Break size={30} />

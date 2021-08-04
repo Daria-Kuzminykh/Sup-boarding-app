@@ -21,6 +21,13 @@
 	background-color: var(--blueMain);
 	color: var(--white);
 }
+.changeButton:active {
+	border-color: var(--blueDark97);
+}
+.changeButton:focus {
+	background-color: var(--blueMain);
+	color: var(--white);
+}
 
 @media (max-width: 1023px) {
 	.smallTitle {

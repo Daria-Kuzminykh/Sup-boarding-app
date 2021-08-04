@@ -13,12 +13,14 @@ import {Spinner} from "../Spinner";
 import {Break} from "../Break";
 import {Footer} from "../HomePage/Footer";
 import {UpButton} from "../HomePage/UpButton";
+import {Link} from "react-router-dom";
 
 export function SupRoutesPage() {
 	const {loading, error, clearError, request} = useHttp();
 	const data = useSelector<RootState, Array<IRoutePreview>>(state => state.routesList);
 	const tabLoading = useSelector<RootState>(state => state.regionTab.loading);
 	const dispatch = useDispatch();
+	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
 
 	async function loadingData() {
 		clearError();
@@ -27,6 +29,8 @@ export function SupRoutesPage() {
 			dispatch(RoutesListAction(data));
 		} catch (e) {}
 	}
+
+	if (error) return <div className={styles.error}>Что-то пошло не так...Попробуйте зайти позже.</div>
 
 	useEffect(() => {
 		if (data.length) return;
@@ -66,6 +70,14 @@ export function SupRoutesPage() {
 							)
 						})
 					}/>}
+
+					<p className={styles.text}>3. Хотите добавить собственный маршрут?
+						{!isAuthenticated ?
+							<span> Сначало необходимо<Link className={styles.register} to="/home/auth/register">зарегистрироваться.</Link></span> :
+							<Link className={styles.addRoute} to="/user/route-form">Создать маршрут</Link>
+						}
+					</p>
+					<Break size={10} mobileSize={20} />
 				</div>
 			</div>
 			<UpButton />
