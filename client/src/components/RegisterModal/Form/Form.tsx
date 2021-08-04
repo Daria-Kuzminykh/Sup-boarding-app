@@ -67,7 +67,7 @@ export function Form({isLogin}: {isLogin: boolean}) {
 	}
 
   return (
-		<form className={styles.form} onSubmit={handlerSubmit}>
+		<form className={styles.form} onSubmit={handlerSubmit} autoComplete={`${isLogin}`}>
 			{!isLogin && <p className={styles.descr}>1. Придумайте логин длиной от 4 до 15 символов.</p>}
 			<div className={styles.inputBox}>
 				<input
