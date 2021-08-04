@@ -32,7 +32,7 @@ export const useAuth = () => {
 			const data = JSON.parse(item);
 			login(data.token, data.userId, data.loginName);
 		}
-	}, [login]);
+	}, []);
 
 	return { login, logout, token, userId, loginName }
 }
