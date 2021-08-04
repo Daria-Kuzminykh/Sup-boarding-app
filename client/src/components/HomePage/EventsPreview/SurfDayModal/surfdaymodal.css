@@ -11,12 +11,12 @@
 
 @media (max-width: 1023px) {
 	.content {
-		width: 305px;
+		width: 600px;
 	}
 }
 
-@media (max-width: 370px) {
+@media (max-width: 660px) {
 	.content {
-		width: 250px;
+		width: 100%;
 	}
 }

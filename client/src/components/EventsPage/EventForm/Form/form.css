@@ -46,7 +46,6 @@
 @media (max-width: 1023px) {
 	.inputBox {
 		margin-bottom: 20px;
-		/*width: 305px;*/
 	}
 	.inputBox label {
 		line-height: 32px;
@@ -58,9 +57,3 @@
 		width: 100%;
 	}
 }
-
-/*@media (max-width: 370px) {*/
-/*	.inputBox {*/
-/*		width: 250px;*/
-/*	}*/
-/*}*/
