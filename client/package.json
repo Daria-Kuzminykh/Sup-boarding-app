@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "dev": "cross-env NODE_ENV=development webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -41,6 +41,5 @@
   "devDependencies": {
     "redux-devtools-extension": "^2.13.9",
     "webpack-dev-server": "^3.11.2"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

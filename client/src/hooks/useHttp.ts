@@ -11,7 +11,11 @@ export const useHttp = () => {
 				headers['Content-Type'] = 'application/json';
 			}
 
-			const response = await fetch(`http://localhost:5000${url}`, { method, body, headers });
+			//for development
+			// const response = await fetch(`http://localhost:5000${url}`, { method, body, headers });
+
+			//for production
+			const response = await fetch(url, { method, body, headers });
 			const data = await response.json();
 
 			if (!response.ok) {

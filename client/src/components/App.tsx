@@ -4,16 +4,20 @@ import '../style.global.css';
 import {Routes} from "../routes";
 import {BrowserRouter} from "react-router-dom";
 import {createStore, applyMiddleware} from "redux";
-import {composeWithDevTools} from "redux-devtools-extension";
+// import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import {rootReducer} from '../store/rootReducer';
 import {Provider} from "react-redux";
 import {storageName, useAuth} from "../hooks/useAuth";
 import {Auth} from "../store/actions";
 
-const store = createStore(rootReducer, composeWithDevTools(
-	applyMiddleware(thunk),
-));
+//for development
+// const store = createStore(rootReducer, composeWithDevTools(
+// 	applyMiddleware(thunk),
+// ));
+
+//for production
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export function App() {
 	const { token, userId, loginName } = useAuth();
