@@ -18,7 +18,6 @@ import {Break} from "../Break";
 import {ActionBlock} from "./ActionBlock";
 import {UpButton} from "../HomePage/UpButton";
 import {Footer} from "../HomePage/Footer";
-import {storageName} from "../../hooks/useAuth";
 
 export function UserPage() {
 	const token = useSelector<RootState>(state => state.auth.token)
@@ -42,14 +41,6 @@ export function UserPage() {
 	}
 
 	useEffect(() => {
-		const item = localStorage.getItem(storageName);
-
-		if (typeof item !== "string") {
-			history.push('/no-register');
-		} else {
-			const data = JSON.parse(item);
-			dispatch(Auth({ token: data.token, userId: data.userId, isAuthenticated: true, loginName: data.loginName }));
-		}
 		getUserData();
 	}, [name]);
 

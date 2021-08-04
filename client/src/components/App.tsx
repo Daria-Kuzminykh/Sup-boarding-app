@@ -24,14 +24,7 @@ export function App() {
 	const isAuthenticated = !!token;
 
   useEffect(() => {
-		const item = localStorage.getItem(storageName);
-
-		if (typeof item !== "string") {
-			store.dispatch(Auth({ token, userId, isAuthenticated, loginName }));
-		} else {
-			const data = JSON.parse(item);
-			store.dispatch(Auth({ token: data.token, userId: data.userId, isAuthenticated: true, loginName: data.loginName }));
-		}
+		store.dispatch(Auth({ token, userId, loginName, isAuthenticated }));
 	}, []);
 
   return (
