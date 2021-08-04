@@ -21,8 +21,8 @@ import {SurfDayModal} from "./components/HomePage/EventsPreview/SurfDayModal";
 import {SupDayModal} from "./components/HomePage/EventsPreview/SupDayModal";
 import {NoRegister} from "./components/UserPage/NoRegister";
 
-export function Routes() {
-	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
+export function Routes({ isAuthenticated }: { isAuthenticated: boolean }) {
+	// const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
 
   if (isAuthenticated) {
     return (

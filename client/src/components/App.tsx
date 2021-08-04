@@ -30,7 +30,7 @@ export function App() {
   return (
     <Provider store={store}>
 			<BrowserRouter>
-				<Routes />
+				<Routes isAuthenticated={isAuthenticated} />
 			</BrowserRouter>
 		</Provider>
   );
