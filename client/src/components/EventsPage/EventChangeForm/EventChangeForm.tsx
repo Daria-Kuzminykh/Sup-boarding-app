@@ -7,7 +7,7 @@ import {Modal} from "../../Modal";
 
 export function EventChangeForm() {
   return (
-		<Modal path="/user" children={
+		<Modal path="/me" children={
 			<>
 				<ModalTitle text="Событие" />
 				<Break size={30} />

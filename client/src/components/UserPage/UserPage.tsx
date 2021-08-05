@@ -85,7 +85,7 @@ export function UserPage() {
 							}
 						</>
 					} />
-					<div className={styles.buttonCenter} onClick={() => history.push('/user/route-form')}>
+					<div className={styles.buttonCenter} onClick={() => history.push('/me/route-form')}>
 						<Button text="добавить маршрут" />
 					</div>
 
@@ -116,7 +116,7 @@ export function UserPage() {
 
 					<Break size={40} mobileSize={20}/>
 
-					<div className={styles.buttonCenter} onClick={() => history.push('/user/event-form')}>
+					<div className={styles.buttonCenter} onClick={() => history.push('/me/event-form')}>
 						<Button text="добавить событие"/>
 					</div>
 				</div>

@@ -1,5 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
-import {Auth} from "../store/actions";
+import {useCallback, useState} from "react";
 
 export const storageName = 'userData';
 
@@ -15,7 +14,7 @@ export const useAuth = () => {
 
 		localStorage.setItem(storageName, JSON.stringify({
 			userId: id, token: jwtToken, loginName: loginName,
-		}))
+		}));
 	}, []);
 
 	const logout = useCallback(() => {
@@ -23,15 +22,6 @@ export const useAuth = () => {
 		setUserId('');
 		setLoginName('');
 		localStorage.removeItem(storageName);
-	}, []);
-
-	useEffect(() => {
-		const item = localStorage.getItem(storageName);
-
-		if (typeof item === "string") {
-			const data = JSON.parse(item);
-			login(data.token, data.userId, data.loginName);
-		}
 	}, []);
 
 	return { login, logout, token, userId, loginName }

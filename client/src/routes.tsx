@@ -21,36 +21,36 @@ import {SurfDayModal} from "./components/HomePage/EventsPreview/SurfDayModal";
 import {SupDayModal} from "./components/HomePage/EventsPreview/SupDayModal";
 import {NoRegister} from "./components/UserPage/NoRegister";
 
-export function Routes({ isAuthenticated }: { isAuthenticated: boolean }) {
-	// const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
+export function Routes() {
+	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
 
   if (isAuthenticated) {
     return (
       <Switch>
-        <Route path="/user">
+        <Route path="/me">
           <UserPage />
-					<Route path="/user/route-form">
+					<Route path="/me/route-form">
 						<RouteForm />
 					</Route>
-					<Route path="/user/event-form">
+					<Route path="/me/event-form">
 						<EventForm />
 					</Route>
-					<Route path="/user/change-form">
+					<Route path="/me/change-form">
 						<ChangeModal />
 					</Route>
-					<Route path="/user/routes/:id">
-						<RouteModal path="/user" />
+					<Route path="/me/routes/:id">
+						<RouteModal path="/me" />
 					</Route>
-					<Route path="/user/events/:id">
-						<EventModal path="/user" />
+					<Route path="/me/events/:id">
+						<EventModal path="/me" />
 					</Route>
-					<Route path="/user/delete">
+					<Route path="/me/delete">
 						<DeleteModal />
 					</Route>
-					<Route path="/user/change-route">
+					<Route path="/me/change-route">
 						<RouteChangeForm />
 					</Route>
-					<Route path="/user/change-event">
+					<Route path="/me/change-event">
 						<EventChangeForm />
 					</Route>
         </Route>
@@ -97,6 +97,12 @@ export function Routes({ isAuthenticated }: { isAuthenticated: boolean }) {
 
   return (
     <Switch>
+			<Route path="/me">
+				<NoRegister isEndTime={false} />
+			</Route>
+			<Route path="/events">
+				<NoRegister isEndTime={false} />
+			</Route>
 			<Route path="/routes">
 				<SupRoutesPage />
 				<Route path="/routes/routes/:id">

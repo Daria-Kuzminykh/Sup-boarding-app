@@ -20,13 +20,13 @@ export function ChangeButton({ isRoute, id }: IActionButton) {
 			if (isRoute) {
 				const { region, place, name, level, time, fotoLink, descr, plus, minus, _id, coverChoice, stravaLink, coordinatesLink } = await request(`/change-route/${id}`);
 				dispatch(RouteChangeAction({ region, place, name, level, time, fotoLink, descr, plus, minus, _id, coverChoice, stravaLink, coordinatesLink }));
-				history.push('/user/change-route');
+				history.push('/me/change-route');
 			} else {
 				const { name, place, descr, contacts, contactTel, dateEvent, _id } = await request(`/events/${id}`, 'GET', null, {
 					Authorization: `Bearer ${token}`
 				});
 				dispatch(EventChangeAction({name, place, descr, contacts, contactTel, dateEvent, _id }));
-				history.push('/user/change-event');
+				history.push('/me/change-event');
 			}
 		} catch (e) {}
 		;

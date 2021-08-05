@@ -11,7 +11,7 @@ export function DeleteButton({ isRoute, id }: IActionButton) {
 
 	function handlerClick() {
 		dispatch(DeleteElementAction({ isRoute: isRoute, id: id }));
-		history.push('/user/delete');
+		history.push('/me/delete');
 	}
 
 

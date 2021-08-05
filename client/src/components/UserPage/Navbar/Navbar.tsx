@@ -36,7 +36,7 @@ export function Navbar() {
 								<Link to="/events">События</Link>
 							</li>
 							<li className={styles.item}>
-								<Link to="/user">Личный кабинет</Link>
+								<Link to="/me">Личный кабинет</Link>
 							</li>
 						</ul>
 					</nav>

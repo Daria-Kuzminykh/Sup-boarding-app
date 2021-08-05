@@ -61,7 +61,7 @@ export function Form({isLogin}: {isLogin: boolean}) {
 					const data = await request('/auth/login', 'POST', {...form});
 					login(data.token, data.userId, data.loginName);
 					dispatch(Auth({ token: data.token, userId: data.userId, isAuthenticated: true, loginName: data.loginName }));
-					history.push('/user');
+					history.push('/me');
 				}
 		} catch (e) {}
 	}

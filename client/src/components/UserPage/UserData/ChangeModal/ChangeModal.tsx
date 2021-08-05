@@ -6,7 +6,7 @@ import {Break} from "../../../Break";
 
 export function ChangeModal() {
   return (
-		<Modal path="/user" children={
+		<Modal path="/me" children={
 			<>
 				<ModalTitle text="Изменить данные" />
 				<Break size={30} />

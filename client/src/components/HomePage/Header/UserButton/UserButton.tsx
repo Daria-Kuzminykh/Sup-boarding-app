@@ -20,7 +20,7 @@ export function UserButton({ userName }: {userName: string}) {
 			{isOpen && (
 				<ul className={styles.action}>
 					<li className={styles.item} onClick={handlerClick}>
-						<Link to="/user">Личный кабинет</Link>
+						<Link to="/me">Личный кабинет</Link>
 					</li>
 					<li className={styles.item} onClick={handlerClick}>
 						<button className={styles.button} onClick={() => {history.push('home/auth/logout')}}>Выйти</button>

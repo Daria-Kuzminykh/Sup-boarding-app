@@ -6,7 +6,7 @@ import {Break} from "../../Break";
 
 export function EventForm() {
   return (
-		<Modal path="/user" children={
+		<Modal path="/me" children={
 			<>
 				<ModalTitle text="Событие" />
 				<Break size={30} />

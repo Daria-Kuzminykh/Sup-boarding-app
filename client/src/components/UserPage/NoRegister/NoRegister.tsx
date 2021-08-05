@@ -7,11 +7,11 @@ import {storageName} from "../../../hooks/useAuth";
 import {useDispatch} from "react-redux";
 import {useHistory} from "react-router-dom";
 
-export function NoRegister() {
+export function NoRegister({ isEndTime = true }: { isEndTime?: boolean }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	function noRegister() {
+	function handlerClick() {
 		dispatch(Auth({token: '', userId: '', isAuthenticated: false, loginName: ''}));
 		localStorage.removeItem(storageName);
 		history.push('home/auth/login');
@@ -21,9 +21,9 @@ export function NoRegister() {
 		<div className={styles.block}>
 			<Break size={60} />
 			<p className={styles.text}>
-				Время сеанса истекло, необходимо войти в личный кабинет снова.
+				{isEndTime ? 'Время сеанса истекло, необходимо войти в личный кабинет снова.' : 'Для просмотра данного раздела необходимо войти в личный профиль.'}
 			</p>
-			<div className={styles.button} onClick={noRegister}>
+			<div className={styles.button} onClick={handlerClick}>
 				<Button text="Войти" />
 			</div>
 		</div>

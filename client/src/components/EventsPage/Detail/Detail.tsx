@@ -3,7 +3,6 @@ import styles from '../../SupRoutesPage/Detail/detail.css';
 import {useHistory, useLocation} from "react-router-dom";
 import {useHttp} from "../../../hooks/useHttp";
 import {Spinner} from "../../Spinner";
-import {Message} from "../../Message";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store/rootState";
 import {Break} from "../../Break";

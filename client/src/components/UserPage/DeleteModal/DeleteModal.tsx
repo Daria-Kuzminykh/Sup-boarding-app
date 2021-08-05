@@ -33,7 +33,7 @@ export function DeleteModal() {
 			setTimeout(() => {
 				dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
 
-				history.push('/user');
+				history.push('/me');
 			}, 700);
 		} catch (e) {}
 	}
@@ -42,7 +42,7 @@ export function DeleteModal() {
 		useAnimation();
 
 		setTimeout(() => {
-			history.push('/user');
+			history.push('/me');
 		}, 200);
 	}
 
@@ -53,7 +53,7 @@ export function DeleteModal() {
 	}, [error]);
 
 	return (
-		<Modal path="/user" children={
+		<Modal path="/me" children={
 			<div className={styles.content}>
 				<p className={styles.text}>Вы уверены, что хотите удалить?</p>
 

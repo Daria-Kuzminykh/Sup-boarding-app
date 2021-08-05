@@ -6,7 +6,7 @@ import {Break} from "../../Break";
 
 export function RouteForm() {
   return (
-		<Modal path="/user" children={
+		<Modal path="/me" children={
 			<>
 				<ModalTitle text="Маршрут" />
 				<Break size={30} />

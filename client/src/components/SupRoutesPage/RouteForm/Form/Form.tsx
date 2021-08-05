@@ -53,7 +53,7 @@ export function Form({isNew}: {isNew: boolean}) {
 
 				setTimeout(() => {
 					dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
-					history.push('/user');
+					history.push('/me');
 				}, 700);
 
 			} else {
@@ -63,7 +63,7 @@ export function Form({isNew}: {isNew: boolean}) {
 				setSuccess(data.message);
 				setTimeout(() => {
 					dispatch(User({ name: '', surname: '', supRoutes: [], events: [] }));
-					history.push('/user');
+					history.push('/me');
 				}, 700);
 			}
 		} catch (e) {}

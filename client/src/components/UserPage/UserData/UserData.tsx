@@ -10,7 +10,7 @@ export function UserData() {
 	const history = useHistory();
 
 	function handlerClick() {
-		history.push('/user/change-form');
+		history.push('/me/change-form');
 	}
 
   return (
