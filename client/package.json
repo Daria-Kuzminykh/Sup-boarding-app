@@ -41,6 +41,5 @@
   "devDependencies": {
     "redux-devtools-extension": "^2.13.9",
     "webpack-dev-server": "^3.11.2"
-  },
-	"proxy": "http://localhost:5000"
+  }
 }
