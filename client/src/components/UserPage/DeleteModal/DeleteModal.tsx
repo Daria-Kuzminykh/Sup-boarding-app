@@ -19,7 +19,7 @@ export function DeleteModal() {
 	const [success, setSuccess] = useState('');
 	const deleteElement = useSelector<RootState, IDeleteElement>(state => state.deleteElement);
 
-	const path = deleteElement.isRoute && `/routes/${deleteElement.id}` || !deleteElement.isRoute && `/events/${deleteElement.id}`;
+	const path = deleteElement.isRoute && `/routes/${deleteElement.id}` || !deleteElement.isRoute && `/event/${deleteElement.id}`;
 
 	async function handlerClick() {
 		clearError();

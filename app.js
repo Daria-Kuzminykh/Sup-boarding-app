@@ -15,7 +15,7 @@ app.use(express.json({ extended: true }));
 app.use('/auth', require('./routes/auth.routes'));
 app.use('/user', require('./routes/user.routes'));
 app.use('/routes', require('./routes/supRoutes.routes'));
-app.use('/events', require('./routes/events.routes'));
+app.use('/event', require('./routes/events.routes'));
 app.use('/detail-route', require('./routes/supRoutesDetail'));
 app.use('/detail-event', require('./routes/eventsDetail.routes'));
 app.use('/change-route', require('./routes/supRoutesChange'));

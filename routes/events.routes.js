@@ -19,16 +19,7 @@ router.get('/', auth, async (req, res) => {
 	} catch (e) {
 		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
 	}
-})
-
-router.get('/:id', auth, async (req, res) => {
-	try {
-		const event = await Event.findById(req.params.id);
-		res.json(event);
-	} catch (e) {
-		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
-	}
-})
+});
 
 router.delete('/:id', auth, async (req, res) => {
 	try {
@@ -44,7 +35,7 @@ router.delete('/:id', auth, async (req, res) => {
 	} catch (e) {
 		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
 	}
-})
+});
 
 router.patch('/change', auth, async (req, res) => {
 	try {

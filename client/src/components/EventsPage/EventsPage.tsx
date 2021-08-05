@@ -25,7 +25,7 @@ export function EventsPage() {
 	async function loadingData() {
 		clearError();
 		try {
-			const data = await request('/events', 'GET', null, {
+			const data = await request('/event', 'GET', null, {
 				Authorization: `Bearer ${token}`
 			});
 			dispatch(EventsListAction(data));

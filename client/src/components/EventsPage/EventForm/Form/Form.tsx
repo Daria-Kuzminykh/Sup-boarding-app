@@ -44,7 +44,7 @@ export function Form({isNew}: {isNew: boolean}) {
 				setSuccess(data.message);
 				dispatch(EventAction({ name: '', place: '', dateEvent: '', contacts: '', contactTel: '', descr: '' }));
 			} else  {
-				const data = await request('/events/change', 'PATCH', {...form}, {
+				const data = await request('/event/change', 'PATCH', {...form}, {
 					Authorization: `Bearer ${token}`
 				});
 				setSuccess(data.message);
