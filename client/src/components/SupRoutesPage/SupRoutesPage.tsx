@@ -19,13 +19,14 @@ export function SupRoutesPage() {
 	const {loading, error, clearError, request} = useHttp();
 	const data = useSelector<RootState, Array<IRoutePreview>>(state => state.routesList);
 	const tabLoading = useSelector<RootState>(state => state.regionTab.loading);
+	const tabRegion = useSelector<RootState>(state => state.regionTab.name);
 	const dispatch = useDispatch();
 	const isAuthenticated = useSelector<RootState>(state => state.auth.isAuthenticated);
 
 	async function loadingData() {
 		clearError();
 		try {
-			const data = await request(`/routes/${krasnoyarsk}`);
+			const data = await request(`/routes/${tabRegion}`);
 			dispatch(RoutesListAction(data));
 		} catch (e) {}
 	}
