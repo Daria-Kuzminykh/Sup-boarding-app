@@ -74,7 +74,7 @@ export function SupRoutesPage() {
 					<p className={styles.text}>3. Хотите добавить собственный маршрут?
 						{!isAuthenticated ?
 							<span> Сначало необходимо<Link className={styles.register} to="/home/auth/register">зарегистрироваться.</Link></span> :
-							<Link className={styles.addRoute} to="/user/route-form">Создать маршрут</Link>
+							<Link className={styles.addRoute} to="/me/route-form">Создать маршрут</Link>
 						}
 					</p>
 					<Break size={10} mobileSize={20} />
