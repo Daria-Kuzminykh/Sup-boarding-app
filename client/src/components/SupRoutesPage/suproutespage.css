@@ -5,7 +5,7 @@
 	margin-bottom: 40px;
 }
 .notRouteText {
-	padding-bottom: 50px;
+	padding-bottom: 170px;
 	text-align: center;
 	line-height: 28px;
 }
@@ -29,6 +29,9 @@
 @media (max-width: 1300px) {
 	.content {
 		padding: 65px 0 0;
+	}
+	.notRouteText {
+		padding-bottom: 50px;
 	}
 }
 

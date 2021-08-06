@@ -98,6 +98,8 @@ export function Form({isNew}: {isNew: boolean}) {
 					placeholder="Дата"
 					onChange={handlerChange}
 					required={true}
+					min="2021-08-01"
+					max="2025-01-01"
 				/>
 			</div>
 
@@ -134,9 +136,11 @@ export function Form({isNew}: {isNew: boolean}) {
 					value={form.contactTel}
 					id="contactTel"
 					name="contactTel"
-					type="number"
+					type="tel"
 					placeholder="Телефон"
 					onChange={handlerChange}
+					minLength={11}
+					maxLength={11}
 				/>
 			</div>
 
