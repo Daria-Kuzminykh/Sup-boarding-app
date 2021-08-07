@@ -21,15 +21,25 @@ router.get('/', auth, async (req, res) => {
 	}
 });
 
+router.get('/:id', auth, async (req, res) => {
+	try {
+		const event = await Event.findById(req.params.id);
+		if (!event) return res.status(404).json({ message: 'Данное событие не найдено((' });
+
+		res.json(event);
+	} catch (e) {
+		res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
+	}
+});
+
 router.delete('/:id', auth, async (req, res) => {
 	try {
-		const event = Event.findById(req.params.id);
+		const event = await Event.findById(req.params.id);
+		if (!event) return res.status(404).json({ message: 'Данное событие не найдено((' });
+		const user = req.user.userId;
+		if (String(user) !== String(event.owner)) return res.status(400).json({ message: 'Удалять событие может только его автор' });
 
-		if (event) {
-			await event.deleteOne();
-		} else {
-			return res.status(404).json({ message: 'Событие не найдено' });
-		}
+		await event.deleteOne();
 
 		res.status(200).json({ message: 'Событие удалено' });
 	} catch (e) {
@@ -39,6 +49,10 @@ router.delete('/:id', auth, async (req, res) => {
 
 router.patch('/change', auth, async (req, res) => {
 	try {
+		const user = req.user.userId;
+		const event = await Event.findById(req.body._id);
+		if (String(user) !== String(event.owner)) return res.status(400).json({ message: 'Изменять событие может только его автор' });
+
 		const {name, place, descr, contacts, contactTel, dateEvent, _id} = req.body;
 		await Event.findByIdAndUpdate(_id, {name, place, descr, contacts, contactTel, dateEvent}, {
 			useFindAndModify: false,

@@ -22,7 +22,7 @@ export function ChangeButton({ isRoute, id }: IActionButton) {
 				dispatch(RouteChangeAction({ region, place, name, level, time, fotoLink, descr, plus, minus, _id, coverChoice, stravaLink, coordinatesLink }));
 				history.push('/me/change-route');
 			} else {
-				const { name, place, descr, contacts, contactTel, dateEvent, _id } = await request(`/events/${id}`, 'GET', null, {
+				const { name, place, descr, contacts, contactTel, dateEvent, _id } = await request(`/event/${id}`, 'GET', null, {
 					Authorization: `Bearer ${token}`
 				});
 				dispatch(EventChangeAction({name, place, descr, contacts, contactTel, dateEvent, _id }));

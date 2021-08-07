@@ -17,7 +17,7 @@ export function Form({isNew}: {isNew: boolean}) {
 	const [message, setMessage] = useState('');
 	const [success, setSuccess] = useState('');
 
-	if (error === 'Нет авторизации') history.push('/no-register');
+	if (error) history.push('/no-register');
 
 	useEffect(() => {
 		setMessage(error);

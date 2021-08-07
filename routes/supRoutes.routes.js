@@ -26,13 +26,12 @@ router.get('/:region', async (req, res) => {
 
 router.delete('/:id', auth, async (req, res) => {
 	try {
-		const route = Route.findById(req.params.id);
+		const route = await Route.findById(req.params.id);
+		if (!route) return res.status(404).json({ message: 'Данный маршрут не найден((' });
+		const user = req.user.userId;
+		if (String(user) !== String(route.owner)) return res.status(400).json({ message: 'Удалять маршрут может только его автор' });
 
-		if (route) {
-			await route.deleteOne();
-		} else {
-			return res.status(404).json({ message: 'Маршрут не найден' });
-		}
+		await route.deleteOne();
 
 		res.status(200).json({ message: 'Маршрут удален' });
 	} catch (e) {

@@ -140,7 +140,7 @@ router.patch('/change-data',
 			return res.status(400).json({
 				errors: errors.array(),
 				message: 'Введены некорректные данные',
-			})
+			});
 		}
 
 		const {loginName, password, name, surname} = req.body;

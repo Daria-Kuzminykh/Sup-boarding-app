@@ -14,6 +14,7 @@ import cover3 from '../../../../static/image/cover-preview-3.webp';
 import cover4 from '../../../../static/image/cover-preview-4.webp';
 import cover5 from '../../../../static/image/cover-preview-5.webp';
 import cover6 from '../../../../static/image/cover-preview-6.webp';
+import {irkutsk, khakassia, krasnoyarsk, otherRegion} from "../../RegionMenu";
 
 export function Form({isNew}: {isNew: boolean}) {
 	const form = isNew && useSelector<RootState, IRoute>(state => state.route) || useSelector<RootState, IRoute>(state => state.routeChange);
@@ -88,10 +89,10 @@ export function Form({isNew}: {isNew: boolean}) {
 			<div className={styles.inputBox}>
 				<label htmlFor="region">2. Выберите регион </label>
 				<select className={styles.select} name="region" id="region" value={form.region} onChange={handlerChange}>
-					<option value="Красноярский край">Красноярский край</option>
-					<option value="Иркутская область">Иркутская область</option>
-					<option value="Республика Хакасия">Республика Хакасия</option>
-					<option value="Другой регион">Другой регион</option>
+					<option value={krasnoyarsk}>{krasnoyarsk}</option>
+					<option value={irkutsk}>{irkutsk}</option>
+					<option value={khakassia}>{khakassia}</option>
+					<option value={otherRegion}>{otherRegion}</option>
 				</select>
 			</div>
 
